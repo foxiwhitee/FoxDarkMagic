@@ -1,0 +1,16 @@
+{
+  "minVersion": "0.8.2",
+  "compatibilityLevel": "JAVA_8",
+  "required": true,
+  "target": "@env(DEFAULT)",
+  "package": "foxiwhitee.FoxDarkMagic.mixins",
+  "refmap": "mixins.FoxLib.refmap.json",
+  "injectors": {
+    "defaultRequire": 1
+  },
+  "mixins": [
+    "TileInfusionMatrixMixin"
+  ],
+  "client": [],
+  "server": []
+}

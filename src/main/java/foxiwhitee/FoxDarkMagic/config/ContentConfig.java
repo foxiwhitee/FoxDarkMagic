@@ -8,4 +8,7 @@ public class ContentConfig {
 
     @ConfigValue(category = "Content", desc = "Enable Stabilizer?")
     public static boolean enableStabilizer = true;
+
+    @ConfigValue(category = "Content", desc = "Enable Matter Distorter?")
+    public static boolean enableMatterDistorter = true;
 }

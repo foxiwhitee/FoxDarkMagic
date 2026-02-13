@@ -1,0 +1,14 @@
+itemGroup.FOX_DARK_MAGIC_TAB=FoxDarkMagic
+
+# Blocks
+tile.stabilizer.name=Matrix Stabilizer
+tile.matterDistorter.name=Matter Distorter
+
+# Items
+
+# Tooltips
+tooltip.stabilizer.description.1=§7Stabilizes the matrix. Ideally stabilizes the matrix if there are §34 stabilizers
+tooltip.stabilizer.description.2=§7Accelerates the absorption of aspects
+tooltip.matterDistorter.description.1=§7Generates §3%s§7 aspects in a jar with Sinister Node for §3%s§7 essence
+tooltip.matterDistorter.description.2=§4Warning! It will eat ALL of your essence within a radius of %s blocks.
+

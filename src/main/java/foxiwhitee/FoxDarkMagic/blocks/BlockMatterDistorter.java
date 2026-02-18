@@ -17,6 +17,7 @@ public class BlockMatterDistorter extends ThaumBlock {
     public BlockMatterDistorter(String name) {
         super(name, TileMatterDistorter.class);
         setLightLevel(1);
+        super.renderId = renderId;
     }
 
     @Override
@@ -38,8 +39,4 @@ public class BlockMatterDistorter extends ThaumBlock {
         return false;
     }
 
-    @Override
-    public int getRenderType() {
-        return renderId;
-    }
 }

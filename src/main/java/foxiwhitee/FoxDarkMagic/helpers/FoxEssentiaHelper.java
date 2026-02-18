@@ -1,11 +1,14 @@
 package foxiwhitee.FoxDarkMagic.helpers;
 
+import cpw.mods.fml.common.network.ByteBufUtils;
 import cpw.mods.fml.common.network.NetworkRegistry;
+import io.netty.buffer.ByteBuf;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.world.World;
 import net.minecraftforge.common.util.ForgeDirection;
 import thaumcraft.api.WorldCoordinates;
 import thaumcraft.api.aspects.Aspect;
+import thaumcraft.api.aspects.AspectList;
 import thaumcraft.api.aspects.IAspectSource;
 import thaumcraft.common.lib.network.PacketHandler;
 import thaumcraft.common.lib.network.fx.PacketFXEssentiaSource;
@@ -117,5 +120,31 @@ public class FoxEssentiaHelper {
         WorldCoordinates tileLoc = new WorldCoordinates(tile.xCoord, tile.yCoord, tile.zCoord, tile.getWorldObj().provider.dimensionId);
         sources.remove(tileLoc);
         sourcesDelay.remove(tileLoc);
+    }
+
+    public static void readFromStream(ByteBuf data, AspectList aspects) {
+        aspects.aspects.clear();
+        int size = data.readInt();
+
+        for (int i = 0; i < size; i++) {
+            String key = ByteBufUtils.readUTF8String(data);
+            int amount = data.readInt();
+
+            Aspect aspect = Aspect.getAspect(key);
+            if (aspect != null) {
+                aspects.add(aspect, amount);
+            }
+        }
+    }
+
+    public static void writeToStream(ByteBuf data, AspectList aspects) {
+        data.writeInt(aspects.size());
+
+        for (Aspect aspect : aspects.getAspects()) {
+            if (aspect != null) {
+                ByteBufUtils.writeUTF8String(data, aspect.getTag());
+                data.writeInt(aspects.aspects.get(aspect));
+            }
+        }
     }
 }

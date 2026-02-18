@@ -1,5 +1,6 @@
 package foxiwhitee.FoxDarkMagic.tile;
 
+import cpw.mods.fml.common.network.ByteBufUtils;
 import foxiwhitee.FoxDarkMagic.config.DarkConfig;
 import foxiwhitee.FoxDarkMagic.helpers.FoxEssentiaHelper;
 import foxiwhitee.FoxLib.tile.FoxBaseInvTile;
@@ -7,6 +8,7 @@ import foxiwhitee.FoxLib.tile.event.TileEvent;
 import foxiwhitee.FoxLib.tile.event.TileEventType;
 import foxiwhitee.FoxLib.tile.inventory.FoxInternalInventory;
 import foxiwhitee.FoxLib.tile.inventory.InvOperation;
+import io.netty.buffer.ByteBuf;
 import net.minecraft.inventory.IInventory;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
@@ -83,6 +85,17 @@ public class TileMatterDistorter extends FoxBaseInvTile implements IAspectContai
         aspectList.readFromNBT(data);
         hasNode = data.getBoolean("hasNode");
         tick = data.getInteger("tick");
+    }
+
+    @TileEvent(TileEventType.CLIENT_NBT_WRITE)
+    public void writeToStream(ByteBuf data) {
+        FoxEssentiaHelper.writeToStream(data, aspectList);
+    }
+
+    @TileEvent(TileEventType.CLIENT_NBT_READ)
+    public boolean readFromStream(ByteBuf data) {
+        FoxEssentiaHelper.readFromStream(data, aspectList);
+        return true;
     }
 
     @Override

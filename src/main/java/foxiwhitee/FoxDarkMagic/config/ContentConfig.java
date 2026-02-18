@@ -11,4 +11,13 @@ public class ContentConfig {
 
     @ConfigValue(category = "Content", desc = "Enable Matter Distorter?")
     public static boolean enableMatterDistorter = true;
+
+    @ConfigValue(category = "Content", desc = "Enable Singular Arcane Furnace?")
+    public static boolean enableSingularArcaneFurnace = true;
+
+    @ConfigValue(category = "Content", desc = "Enable Stack Upgrade?")
+    public static boolean enableStackUpgrade = true;
+
+    @ConfigValue(category = "Content", desc = "Enable Infinity Storage?")
+    public static boolean enableInfinityStorage = true;
 }

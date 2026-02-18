@@ -20,4 +20,11 @@ public class DarkConfig {
 
     @ConfigValue(category = "MatterDistorter", name = "generate", desc = "Number of aspects that generate a block in a node")
     public static int matterDistorterGenerate = 1;
+
+
+    @ConfigValue(category = "Furnace", name = "ticksNeed", desc = "Essence melting speed")
+    public static int singularArcaneFurnaceTicksNeed = 100;
+
+    @ConfigValue(category = "Furnace", name = "storage", desc = "Maximum storage amount of one essence")
+    public static int singularArcaneFurnaceStorage = 42_949_672;
 }

@@ -4,9 +4,12 @@ tile.stabilizer.name=Стабілізатор матриці
 tile.matterDistorter.name=Спотворювач матерії
 
 # Items
+item.stackUpgrade.name=Магічне покращення: Стак
+item.infinityStorageUpgrade=Магічне покращення: Нескінченне сховище аспектів
 
 # Tooltips
 tooltip.stabilizer.description.1=§7Стабілізує матрицю. Ідеально стабілізує матрицю, якщо є §34 стабілізатори 
 tooltip.stabilizer.description.2=§7Прискорює поглинання аспектів
 tooltip.matterDistorter.description.1=§7Генерує §3%s§7 аспектів у банці з зловісним вузлом за §3%s§7 есенції
 tooltip.matterDistorter.description.2=§4Увага! З'їсть ВСЮ вашу есенцію у радіусі %s блоків.
+tooltip.infStorageDesc=§7Збільшує розмір сховища аспектів до 2G кожного

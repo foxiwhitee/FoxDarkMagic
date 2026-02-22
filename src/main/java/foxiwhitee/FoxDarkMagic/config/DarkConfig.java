@@ -27,4 +27,7 @@ public class DarkConfig {
 
     @ConfigValue(category = "Furnace", name = "storage", desc = "Maximum storage amount of one essence")
     public static int singularArcaneFurnaceStorage = 42_949_672;
+
+    @ConfigValue(category = "Furnace", name = "ignoreStorageBus", desc = "If true then Essentia Storage Bus will not work with this block")
+    public static boolean singularArcaneFurnaceIgnoreStorageBus = false;
 }

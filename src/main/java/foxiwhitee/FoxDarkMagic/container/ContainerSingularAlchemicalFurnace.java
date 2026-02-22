@@ -5,11 +5,13 @@ import foxiwhitee.FoxDarkMagic.utils.Filters;
 import foxiwhitee.FoxLib.container.FoxBaseContainer;
 import foxiwhitee.FoxLib.container.slots.SlotFiltered;
 import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.tileentity.TileEntity;
 
 public class ContainerSingularAlchemicalFurnace extends FoxBaseContainer {
+    private final EntityPlayer player;
+
     public ContainerSingularAlchemicalFurnace(EntityPlayer player, TileSingularAlchemicalFurnace tileEntity) {
         super(player, tileEntity);
+        this.player = player;
 
         bindPlayerInventory(56, 190);
 
@@ -25,5 +27,9 @@ public class ContainerSingularAlchemicalFurnace extends FoxBaseContainer {
                 addSlotToContainer(new SlotFiltered(Filters.ITEM_WITH_ASPECT.getFilter(), tileEntity.getInternalInventory(), j + i * 5, 51 + j * 18, 59 + i * 18));
             }
         }
+    }
+
+    public EntityPlayer getPlayer() {
+        return player;
     }
 }

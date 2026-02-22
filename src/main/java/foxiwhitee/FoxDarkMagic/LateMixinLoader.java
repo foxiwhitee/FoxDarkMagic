@@ -13,7 +13,8 @@ public class LateMixinLoader implements ILateMixinLoader {
     @Override
     public List<String> getMixinConfigs() {
         return Arrays.asList(
-            "mixins.FoxDarkMagic_Thaumcraft.json"
+            "mixins.FoxDarkMagic_Thaumcraft.json",
+            "mixins.FoxDarkMagic_TE.json"
         );
     }
 
@@ -21,6 +22,9 @@ public class LateMixinLoader implements ILateMixinLoader {
     public boolean shouldMixinConfigQueue(String mixinConfig) {
         if (mixinConfig.equals("mixins.FoxDarkMagic_Thaumcraft")) {
             return Loader.isModLoaded("Thaumcraft");
+        }
+        if (mixinConfig.equals("mixins.FoxDarkMagic_TE")) {
+            return Loader.isModLoaded("thaumicenergistics");
         }
         return true;
     }

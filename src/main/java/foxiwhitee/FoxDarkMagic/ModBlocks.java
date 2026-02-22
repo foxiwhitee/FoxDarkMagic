@@ -5,6 +5,7 @@ import foxiwhitee.FoxDarkMagic.blocks.BlockSingularAlchemicalFurnace;
 import foxiwhitee.FoxDarkMagic.blocks.BlockStabilizer;
 import foxiwhitee.FoxDarkMagic.config.ContentConfig;
 import foxiwhitee.FoxDarkMagic.item.block.ItemBlockMatterDistorter;
+import foxiwhitee.FoxDarkMagic.item.block.ItemBlockSingularAlchemicalFurnace;
 import foxiwhitee.FoxDarkMagic.item.block.ItemBlockStabilizer;
 import foxiwhitee.FoxDarkMagic.tile.TileMatterDistorter;
 import foxiwhitee.FoxDarkMagic.tile.TileSingularAlchemicalFurnace;
@@ -15,6 +16,9 @@ import net.minecraft.block.Block;
 
 public class ModBlocks {
     public static final Block stabilizer = new BlockStabilizer("stabilizer");
+
+    @StaticRender(modID = DarkCore.MODID, tile = TileSingularAlchemicalFurnace.class,
+        model = "models/singularAlchemicalFurnace.obj", texture = "textures/blocks/singularAlchemicalFurnace.png")
     public static final Block singularAlchemicalFurnace = new BlockSingularAlchemicalFurnace("singularAlchemicalFurnace");
 
     @StaticRender(modID = DarkCore.MODID, tile = TileMatterDistorter.class,
@@ -27,7 +31,7 @@ public class ModBlocks {
             RegisterUtils.registerTile(TileStabilizer.class);
         }
         if (ContentConfig.enableSingularArcaneFurnace) {
-            RegisterUtils.registerBlock(singularAlchemicalFurnace);
+            RegisterUtils.registerBlock(singularAlchemicalFurnace, ItemBlockSingularAlchemicalFurnace.class);
             RegisterUtils.registerTile(TileSingularAlchemicalFurnace.class);
         }
         if (ContentConfig.enableMatterDistorter) {

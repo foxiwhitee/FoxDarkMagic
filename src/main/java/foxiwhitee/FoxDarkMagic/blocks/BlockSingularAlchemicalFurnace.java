@@ -1,14 +1,25 @@
 package foxiwhitee.FoxDarkMagic.blocks;
 
-import foxiwhitee.FoxDarkMagic.client.gui.GuiSingularAlchemicalFurnace;
-import foxiwhitee.FoxDarkMagic.container.ContainerSingularAlchemicalFurnace;
+import cpw.mods.fml.client.registry.RenderingRegistry;
 import foxiwhitee.FoxDarkMagic.tile.TileSingularAlchemicalFurnace;
-import foxiwhitee.FoxLib.utils.handler.SimpleGuiHandler;
-import net.minecraft.tileentity.TileEntity;
 
-@SimpleGuiHandler(tile = TileSingularAlchemicalFurnace.class, container = ContainerSingularAlchemicalFurnace.class, gui = GuiSingularAlchemicalFurnace.class)
 public class BlockSingularAlchemicalFurnace extends ThaumBlock {
+    private final static int renderId = RenderingRegistry.getNextAvailableRenderId();
+
     public BlockSingularAlchemicalFurnace(String name) {
         super(name, TileSingularAlchemicalFurnace.class);
+        setLightLevel(1);
+        super.renderId = renderId;
+        setBlockTextureName("thaumcraft:arcane_stone");
+    }
+
+    @Override
+    public boolean isOpaqueCube() {
+        return false;
+    }
+
+    @Override
+    public boolean renderAsNormalBlock() {
+        return false;
     }
 }

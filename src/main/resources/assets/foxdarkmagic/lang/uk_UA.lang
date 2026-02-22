@@ -2,10 +2,11 @@
 # Blocks
 tile.stabilizer.name=Стабілізатор матриці
 tile.matterDistorter.name=Спотворювач матерії
+tile.singularAlchemicalFurnace.name=Сингулярна алхімічна піч
 
 # Items
 item.stackUpgrade.name=Магічне покращення: Стак
-item.infinityStorageUpgrade=Магічне покращення: Нескінченне сховище аспектів
+item.infinityStorageUpgrade.name=Магічне покращення: Нескінченне сховище аспектів
 
 # Tooltips
 tooltip.stabilizer.description.1=§7Стабілізує матрицю. Ідеально стабілізує матрицю, якщо є §34 стабілізатори 
@@ -13,3 +14,6 @@ tooltip.stabilizer.description.2=§7Прискорює поглинання ас
 tooltip.matterDistorter.description.1=§7Генерує §3%s§7 аспектів у банці з зловісним вузлом за §3%s§7 есенції
 tooltip.matterDistorter.description.2=§4Увага! З'їсть ВСЮ вашу есенцію у радіусі %s блоків.
 tooltip.infStorageDesc=§7Збільшує розмір сховища аспектів до 2G кожного
+tooltip.furnace.description.1=§7Плавить об'єкти та зберігає аспекти в собі
+tooltip.furnace.description.2=§7Місткість кожного аспекту: §3%s
+tooltip.furnace.description.3=§7Може наповнювати банки вибраним аспектом

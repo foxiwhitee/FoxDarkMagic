@@ -1,5 +1,7 @@
 package foxiwhitee.FoxDarkMagic.tile;
 
+import cpw.mods.fml.common.Optional;
+import cpw.mods.fml.common.network.ByteBufUtils;
 import foxiwhitee.FoxDarkMagic.config.DarkConfig;
 import foxiwhitee.FoxDarkMagic.helpers.FoxEssentiaHelper;
 import foxiwhitee.FoxDarkMagic.item.ItemInfinityStorageUpgrade;
@@ -13,23 +15,30 @@ import io.netty.buffer.ByteBuf;
 import net.minecraft.inventory.IInventory;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
+import net.minecraft.world.World;
 import net.minecraftforge.common.util.ForgeDirection;
 import thaumcraft.api.aspects.Aspect;
 import thaumcraft.api.aspects.AspectList;
 import thaumcraft.api.aspects.IAspectContainer;
 import thaumcraft.api.aspects.IAspectSource;
+import thaumcraft.common.blocks.ItemJarFilled;
 import thaumcraft.common.lib.crafting.ThaumcraftCraftingManager;
+import thaumicenergistics.api.storage.IAspectStorage;
 
-public class TileSingularAlchemicalFurnace extends FoxBaseInvTile implements IAspectContainer, IAspectSource {
+import java.util.List;
+
+@Optional.Interface(modid = "thaumicenergistics", iface = "thaumicenergistics.api.storage.IAspectStorage")
+public class TileSingularAlchemicalFurnace extends FoxBaseInvTile implements IAspectContainer, IAspectSource, IAspectStorage {
     private static int[] slots;
     private final FoxInternalInventory inventory = new FoxInternalInventory(this, 20);
     private final FoxInternalInventory upgrades = new FoxInternalInventory(this, 2, 1);
-    private final FoxInternalInventory jars = new FoxInternalInventory(this, 7);
+    private final FoxInternalInventory jars = new FoxInternalInventory(this, 7, 1);
     private final AspectList aspectList = new AspectList();
     private int tick;
     private int maxStore;
     private final int ticksNeed;
     private boolean stack;
+    private Aspect selected;
 
     public TileSingularAlchemicalFurnace() {
         this.maxStore = DarkConfig.singularArcaneFurnaceStorage;
@@ -47,6 +56,43 @@ public class TileSingularAlchemicalFurnace extends FoxBaseInvTile implements IAs
     public void tick() {
         if (worldObj.isRemote) {
             return;
+        }
+
+        if (selected != null) {
+            boolean needUpdate = false;
+            int have = aspectList.getAmount(selected);
+            for (ItemStack stack : jars.toArray()) {
+                if (stack != null && have > 0) {
+                    if (stack.getItem() instanceof ItemJarFilled jar) {
+                        AspectList aspects = jar.getAspects(stack);
+                        if (aspects != null) {
+                            if (aspects.size() == 1) {
+                                Aspect aspect = aspects.getAspects()[0];
+                                int count = aspects.getAmount(aspect);
+                                if (aspect == selected && count < 64) {
+                                    int canSend = Math.min(64, Math.min(64 - count, have));
+                                    aspects.aspects.put(aspect, canSend + count);
+                                    jar.setAspects(stack, aspects);
+                                    have -= canSend;
+                                    aspectList.remove(selected, canSend);
+                                    needUpdate = true;
+                                }
+                            }
+                        } else {
+                            aspects = new AspectList();
+                            int canSend = Math.min(64, have);
+                            aspects.aspects.put(selected, canSend);
+                            jar.setAspects(stack, aspects);
+                            have -= canSend;
+                            aspectList.remove(selected, canSend);
+                            needUpdate = true;
+                        }
+                    }
+                }
+            }
+            if (needUpdate) {
+                markForUpdate();
+            }
         }
 
         if (!isNotEmpty(inventory) || !canSmeltAny(inventory)) {
@@ -132,6 +178,9 @@ public class TileSingularAlchemicalFurnace extends FoxBaseInvTile implements IAs
         data.setInteger("tick", tick);
         data.setInteger("maxStore", maxStore);
         data.setBoolean("stack", stack);
+        if (selected != null) {
+            data.setString("selected", selected.getTag());
+        }
     }
 
     @TileEvent(TileEventType.SERVER_NBT_READ)
@@ -142,20 +191,33 @@ public class TileSingularAlchemicalFurnace extends FoxBaseInvTile implements IAs
         tick = data.getInteger("tick");
         maxStore = data.getInteger("maxStore");
         stack = data.getBoolean("stack");
+        if (data.hasKey("selected")) {
+            selected = Aspect.getAspect(data.getString("selected"));
+        }
     }
 
     @TileEvent(TileEventType.CLIENT_NBT_WRITE)
     public void writeToStream(ByteBuf data) {
         data.writeInt(tick);
+        data.writeBoolean(selected != null);
+        if (selected != null) {
+            ByteBufUtils.writeUTF8String(data, selected.getTag());
+        }
         FoxEssentiaHelper.writeToStream(data, aspectList);
     }
 
     @TileEvent(TileEventType.CLIENT_NBT_READ)
     public boolean readFromStream(ByteBuf data) {
         int oldTick = tick;
+        Aspect oldSelected = selected;
         tick = data.readInt();
+        if (data.readBoolean()) {
+            selected = Aspect.getAspect(ByteBufUtils.readUTF8String(data));
+        } else {
+            selected = null;
+        }
         FoxEssentiaHelper.readFromStream(data, aspectList);
-        return oldTick != tick;
+        return oldTick != tick || oldSelected != selected;
     }
 
     @Override
@@ -265,5 +327,41 @@ public class TileSingularAlchemicalFurnace extends FoxBaseInvTile implements IAs
 
     public int getTicksNeed() {
         return ticksNeed;
+    }
+
+    @Override
+    public void getDrops(World w, int x, int y, int z, List<ItemStack> drops) {
+        super.getDrops(w, x, y, z, drops);
+        for (ItemStack stack : jars.toArray()) {
+            if (stack != null) {
+                drops.add(stack);
+            }
+        }
+        for (ItemStack stack : upgrades.toArray()) {
+            if (stack != null) {
+                drops.add(stack);
+            }
+        }
+    }
+
+    public Aspect getSelected() {
+        return selected;
+    }
+
+    public void setSelected(Aspect selected) {
+        this.selected = selected;
+        markForUpdate();
+    }
+
+    @Override
+    @Optional.Method(modid = "thaumicenergistics")
+    public int getContainerCapacity() {
+        return maxStore;
+    }
+
+    @Override
+    @Optional.Method(modid = "thaumicenergistics")
+    public boolean doesShareCapacity() {
+        return false;
     }
 }

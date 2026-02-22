@@ -6,7 +6,6 @@ import foxiwhitee.FoxDarkMagic.item.ItemInfinityStorageUpgrade;
 import foxiwhitee.FoxDarkMagic.item.ItemStackUpgrade;
 import foxiwhitee.FoxLib.container.slots.SlotFiltered;
 import foxiwhitee.FoxLib.utils.helpers.ItemStackUtil;
-import net.minecraft.block.Block;
 import net.minecraft.item.ItemStack;
 import thaumcraft.api.aspects.AspectList;
 import thaumcraft.api.nodes.NodeType;
@@ -25,6 +24,9 @@ public enum Filters {
     STACK_UPGRADE("magicStack", stack -> itemInstanceof(stack, ItemStackUpgrade.class)),
     INF_STORAGE_UPGRADE("safInfAspStorage", stack -> itemInstanceof(stack, ItemInfinityStorageUpgrade.class)),
     ITEM_WITH_ASPECT("aspectItem", stack -> {
+        if (itemInstanceof(stack, ItemJarFilled.class)) {
+            return false;
+        }
         AspectList al = ThaumcraftCraftingManager.getObjectTags(stack);
         al = ThaumcraftCraftingManager.getBonusTags(stack, al);
         return al.visSize() > 0;

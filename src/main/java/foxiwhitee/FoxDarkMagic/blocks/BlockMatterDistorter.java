@@ -1,16 +1,12 @@
 package foxiwhitee.FoxDarkMagic.blocks;
 
 import cpw.mods.fml.client.registry.RenderingRegistry;
-import foxiwhitee.FoxDarkMagic.client.gui.GuiMatterDistorter;
-import foxiwhitee.FoxDarkMagic.container.ContainerMatterDistorter;
 import foxiwhitee.FoxDarkMagic.helpers.FoxEssentiaHelper;
 import foxiwhitee.FoxDarkMagic.tile.TileMatterDistorter;
-import foxiwhitee.FoxLib.utils.handler.SimpleGuiHandler;
 import net.minecraft.block.Block;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.world.World;
 
-@SimpleGuiHandler(tile = TileMatterDistorter.class, container = ContainerMatterDistorter.class, gui = GuiMatterDistorter.class)
 public class BlockMatterDistorter extends ThaumBlock {
     private final static int renderId = RenderingRegistry.getNextAvailableRenderId();
 
@@ -18,6 +14,7 @@ public class BlockMatterDistorter extends ThaumBlock {
         super(name, TileMatterDistorter.class);
         setLightLevel(1);
         super.renderId = renderId;
+        setBlockTextureName("thaumcraft:arcane_stone");
     }
 
     @Override

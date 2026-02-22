@@ -1,9 +1,11 @@
 package foxiwhitee.FoxDarkMagic;
 
+import foxiwhitee.FoxDarkMagic.blocks.BlockChargedArcaneStone;
 import foxiwhitee.FoxDarkMagic.blocks.BlockMatterDistorter;
 import foxiwhitee.FoxDarkMagic.blocks.BlockSingularAlchemicalFurnace;
 import foxiwhitee.FoxDarkMagic.blocks.BlockStabilizer;
 import foxiwhitee.FoxDarkMagic.config.ContentConfig;
+import foxiwhitee.FoxDarkMagic.item.block.ItemBlockChargedArcaneStone;
 import foxiwhitee.FoxDarkMagic.item.block.ItemBlockMatterDistorter;
 import foxiwhitee.FoxDarkMagic.item.block.ItemBlockSingularAlchemicalFurnace;
 import foxiwhitee.FoxDarkMagic.item.block.ItemBlockStabilizer;
@@ -15,6 +17,7 @@ import foxiwhitee.FoxLib.registries.RegisterUtils;
 import net.minecraft.block.Block;
 
 public class ModBlocks {
+    public static final Block chargedArcaneStone = new BlockChargedArcaneStone("chargedArcaneStone");
     public static final Block stabilizer = new BlockStabilizer("stabilizer");
 
     @StaticRender(modID = DarkCore.MODID, tile = TileSingularAlchemicalFurnace.class,
@@ -26,6 +29,9 @@ public class ModBlocks {
     public static final Block matterDistorter = new BlockMatterDistorter("matterDistorter");
 
     public static void registerBlocks() {
+        if (ContentConfig.enableChargedArcaneStone && ContentConfig.enableMoonstone) {
+            RegisterUtils.registerBlock(chargedArcaneStone, ItemBlockChargedArcaneStone.class);
+        }
         if (ContentConfig.enableStabilizer) {
             RegisterUtils.registerBlock(stabilizer, ItemBlockStabilizer.class);
             RegisterUtils.registerTile(TileStabilizer.class);

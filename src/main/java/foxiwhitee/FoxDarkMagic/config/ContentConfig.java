@@ -20,4 +20,19 @@ public class ContentConfig {
 
     @ConfigValue(category = "Content", desc = "Enable Infinity Storage?")
     public static boolean enableInfinityStorage = true;
+
+    @ConfigValue(category = "Content", desc = "Enable Charged Arcane Stone?")
+    public static boolean enableChargedArcaneStone = true;
+
+    @ConfigValue(category = "Content", desc = "Enable Moonstone?")
+    public static boolean enableMoonstone = true;
+
+    @ConfigValue(category = "Content", desc = "Enable Saturated Knowledge Fragment?")
+    public static boolean enableSaturatedKnowledgeFragment = true;
+
+    @ConfigValue(category = "Content", desc = "Enable Book of Knowledge?")
+    public static boolean enableKnowledgeBook = true;
+
+    @ConfigValue(category = "Content", desc = "Enable Holy Book?")
+    public static boolean enableHolyBook = true;
 }

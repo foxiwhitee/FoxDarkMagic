@@ -30,4 +30,13 @@ public class DarkConfig {
 
     @ConfigValue(category = "Furnace", name = "ignoreStorageBus", desc = "If true then Essentia Storage Bus will not work with this block")
     public static boolean singularArcaneFurnaceIgnoreStorageBus = false;
+
+
+    @ConfigValue(category = "ChargedArcaneStone", name = "removeBlock", desc = "Should the block be removed after the ritual?")
+    public static boolean chargedArcaneStoneRemoveAfterRitual = false;
+
+
+    @ConfigValue(category = "SaturatedKnowledgeFragmentAspects", name = "aspects", desc = "How many aspects will a player receive for 1 item?")
+    public static short saturatedKnowledgeFragmentAspects = 25;
+
 }

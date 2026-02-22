@@ -4,10 +4,15 @@ itemGroup.FOX_DARK_MAGIC_TAB=FoxDarkMagic
 tile.stabilizer.name=Matrix Stabilizer
 tile.matterDistorter.name=Matter Distorter
 tile.singularAlchemicalFurnace.name=Singular Alchemical Furnace
+tile.chargedArcaneStone.name=Charged Arcane Stone
 
 # Items
 item.stackUpgrade.name=Magic Upgrade: Stack
 item.infinityStorageUpgrade.name=Magic Upgrade: Infinity Aspect Storage
+item.moonstone.name=Moonstone
+item.saturatedKnowledgeFragment.name=Saturated Knowledge Fragment
+item.knowledgeBook.name=Book of Knowledge
+item.holyBook.name=Holy book
 
 # Tooltips
 tooltip.stabilizer.description.1=§7Stabilizes the matrix. Ideally stabilizes the matrix if there are §34 stabilizers
@@ -18,3 +23,14 @@ tooltip.infStorageDesc=§7Increases aspect storage size to 2G each
 tooltip.furnace.description.1=§7Melts objects and retains aspects within itself
 tooltip.furnace.description.2=§7Capacity of each aspect: §3%s
 tooltip.furnace.description.3=§7Can fill jars with the chosen aspect
+tooltip.chargedArcaneStone=§5Burn, blaze, sky, incinerate!
+tooltip.moonstone=§5Tainted by cosmic corruption
+tooltip.saturatedKnowledgeFragment.description.1=§7This item allows you to:
+tooltip.saturatedKnowledgeFragment.description.2=§7Add §3+%s§7 to all aspects
+tooltip.knowledgeBook.description=§7The wisest among books
+tooltip.knowledgeBook.message.1=§d§lThe wondrous §d§lscripture disappears §d§land your §d§lmind is filled
+tooltip.knowledgeBook.message.2=§d§lWith all §d§lthe secrets of §d§lthis mortal world
+tooltip.holyBook.description=§7Do you believe in Herobrine? And he exists
+tooltip.holyBook.message.1=§6§lYou feel §6§lthat all evil §6§lspirits are §6§lleaving you,
+tooltip.holyBook.message.2=§6§lAnd you are §6§lfilled with §6§la pure aura
+

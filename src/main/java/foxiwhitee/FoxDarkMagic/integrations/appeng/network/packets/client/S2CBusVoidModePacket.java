@@ -1,0 +1,38 @@
+package foxiwhitee.FoxDarkMagic.integrations.appeng.network.packets.client;
+
+import foxiwhitee.FoxDarkMagic.integrations.appeng.client.gui.GuiFastEssentiaBus;
+import foxiwhitee.FoxLib.network.BasePacket;
+import foxiwhitee.FoxLib.network.IInfoPacket;
+import io.netty.buffer.ByteBuf;
+import io.netty.buffer.Unpooled;
+import net.minecraft.client.Minecraft;
+import net.minecraft.client.gui.Gui;
+import net.minecraft.entity.player.EntityPlayer;
+
+public class S2CBusVoidModePacket extends BasePacket {
+    private final boolean isVoidAllowed;
+
+    public S2CBusVoidModePacket(ByteBuf data) {
+        super(data);
+        this.isVoidAllowed = data.readBoolean();
+    }
+
+    public S2CBusVoidModePacket(boolean isVoidAllowed) {
+        super();
+        this.isVoidAllowed = isVoidAllowed;
+
+        ByteBuf data = Unpooled.buffer();
+        data.writeInt(getId());
+        data.writeBoolean(isVoidAllowed);
+        setPacketData(data);
+    }
+
+    @Override
+    public void handleClientSide(IInfoPacket network, BasePacket packet, EntityPlayer player) {
+        Gui gui = Minecraft.getMinecraft().currentScreen;
+
+        if (gui instanceof GuiFastEssentiaBus bus) {
+            bus.onServerSendVoidMode(this.isVoidAllowed);
+        }
+    }
+}

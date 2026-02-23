@@ -35,4 +35,7 @@ public class ContentConfig {
 
     @ConfigValue(category = "Content", desc = "Enable Holy Book?")
     public static boolean enableHolyBook = true;
+
+    @ConfigValue(category = "Content", desc = "Enable Fast Buses?")
+    public static boolean enableFastBuses = true;
 }

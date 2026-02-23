@@ -12,6 +12,8 @@ item.moonstone.name=Місячний камінь
 item.saturatedKnowledgeFragment.name=Насичений фрагмент знань
 item.knowledgeBook.name=Книга знань
 item.holyBook.name=Священна книга
+aeparts.essentia.FastExportBus.name=ME Швидка шина експорту есенції
+aeparts.essentia.FastImportBus.name=ME Швидка шина імпорту есенції
 
 # Tooltips
 tooltip.stabilizer.description.1=§7Стабілізує матрицю. Ідеально стабілізує матрицю, якщо є §34 стабілізатори 
@@ -32,3 +34,4 @@ tooltip.knowledgeBook.message.2=§d§lУсіма таємницями цього
 tooltip.holyBook.description=§7Ви вірите в Херобріна? А він існує
 tooltip.holyBook.message.1=§6§lВи відчуваєте, що всі злі духи залишають вас,
 tooltip.holyBook.message.2=§6§lІ ви наповнені чистою аурою
+foxdarkmagic.group.essentia.transport=ME Швидка шина імпорту/експорту есенції

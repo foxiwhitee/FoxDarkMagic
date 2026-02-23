@@ -39,4 +39,14 @@ public class DarkConfig {
     @ConfigValue(category = "SaturatedKnowledgeFragmentAspects", name = "aspects", desc = "How many aspects will a player receive for 1 item?")
     public static short saturatedKnowledgeFragmentAspects = 25;
 
+
+    @ConfigValue(category = "FastBuses", name = "baseSpeed", desc = "Base speed of fast import/export essence tires")
+    public static int fastBusesBaseSpeed = 512;
+
+    @ConfigValue(category = "FastBuses", name = "additionallySpeed", desc = "Additional speed per boost card for fast essence import/export tiress")
+    public static int fastBusesAdditionallySpeed = 2048;
+
+    @ConfigValue(category = "FastBuses", name = "maxSpeed", desc = "Maximum speed of fast tires import/export essence")
+    public static int fastBusesMaxSpeed = 10000;
+
 }

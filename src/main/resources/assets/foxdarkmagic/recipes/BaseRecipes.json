@@ -1,0 +1,110 @@
+{
+  "crafts": [
+    {
+      "type": "arcaneCraftingShapeless",
+      "output": "<foxdarkmagic:foxdarkmagic.aeparts>",
+      "research": "thaumicenergistics.TEIO",
+      "vis": ["ignis:20", "terra:20", "aqua:10"],
+      "inputs": ["<thaumicenergistics:part.base>", "<thaumicenergistics:storage.component.2>"]
+    },
+    {
+      "type": "arcaneCraftingShapeless",
+      "output": "<foxdarkmagic:foxdarkmagic.aeparts.1>",
+      "research": "thaumicenergistics.TEIO",
+      "vis": ["ignis:20", "terra:20", "aqua:10"],
+      "inputs": ["<thaumicenergistics:part.base.3>", "<thaumicenergistics:storage.component.2>"]
+    },
+    {
+      "type": "crucible",
+      "output": "<foxdarkmagic:saturatedKnowledgeFragment>",
+      "research": "SATURATED_KNOWLEDGE_FRAGMENT",
+      "aspects": ["praecantatio:20", "vitium:20", "cognitio:10"],
+      "input": "<Thaumcraft:ItemResource.9>"
+    },
+    {
+      "type": "infusion",
+      "instability": 30,
+      "research": "HOLY_BOOK",
+      "output": "<foxdarkmagic:holyBook>",
+      "catalyst": "<minecraft:writable_book>",
+      "inputs": ["<foxdarkmagic:saturatedKnowledgeFragment>", "<Thaumcraft:ItemBathSalts>", "<Thaumcraft:ItemSanitySoap>",
+        "<foxdarkmagic:saturatedKnowledgeFragment>", "<Thaumcraft:ItemZombieBrain>", "<Thaumcraft:ItemResource.14>",
+        "<foxdarkmagic:saturatedKnowledgeFragment>", "<Thaumcraft:ItemResource.6>", "<Thaumcraft:ItemEldritchObject>",
+        "<foxdarkmagic:saturatedKnowledgeFragment>", "<Thaumcraft:ItemEldritchObject.3>", "<Thaumcraft:ItemCompassStone>"],
+      "aspects": ["terminus:1024", "moolon:1024", "victus:768", "fames:768", "lux:768"]
+    },
+    {
+      "type": "infusion",
+      "instability": 50,
+      "research": "KNOWLEDGE_BOOK",
+      "output": "<foxdarkmagic:knowledgeBook>",
+      "catalyst": "<foxdarkmagic:holyBook>",
+      "inputs": ["<foxdarkmagic:saturatedKnowledgeFragment>", "<Thaumcraft:ItemEldritchObject.3>", "<foxdarkmagic:moonstone>",
+        "<foxdarkmagic:saturatedKnowledgeFragment>", "<Thaumcraft:ItemEldritchObject.3>", "<foxdarkmagic:moonstone>",
+        "<foxdarkmagic:saturatedKnowledgeFragment>", "<Thaumcraft:ItemEldritchObject.3>", "<foxdarkmagic:moonstone>",
+        "<foxdarkmagic:saturatedKnowledgeFragment>", "<Thaumcraft:ItemEldritchObject.3>", "<foxdarkmagic:moonstone>"],
+      "aspects": ["terminus:1024", "moolon:1024", "cognitio:768", "praecantatio:768", "fames:768"]
+    },
+    {
+      "type": "crucible",
+      "output": "<foxdarkmagic:chargedArcaneStone>",
+      "research": "CHARGED_ARCANE_STONE",
+      "aspects": ["terra:512", "praecantatio:512", "ignis:512"],
+      "input": "<Thaumcraft:blockCosmeticSolid.7>"
+    },
+    {
+      "type": "infusion",
+      "instability": 10,
+      "research": "SINGULAR_ACHEMICAL_FURNACE",
+      "output": "<foxdarkmagic:singularAlchemicalFurnace>",
+      "catalyst": "<Thaumcraft:blockMetalDevice>",
+      "inputs": ["<Thaumcraft:blockMetalDevice.3>", "<foxdarkmagic:stabilizer>", "<Thaumcraft:blockMetalDevice.3>", "<Thaumcraft:ItemResource.1>",
+        "<Thaumcraft:blockMetalDevice.3>", "<foxdarkmagic:stabilizer>", "<Thaumcraft:blockMetalDevice.3>", "<Thaumcraft:ItemEldritchObject.3>",
+        "<Thaumcraft:blockMetalDevice.3>", "<foxdarkmagic:stabilizer>", "<Thaumcraft:blockMetalDevice.3>", "<Thaumcraft:ItemResource>",
+        "<Thaumcraft:blockMetalDevice.3>", "<foxdarkmagic:stabilizer>", "<Thaumcraft:blockMetalDevice.3>", "<Thaumcraft:ItemEldritchObject.3>"],
+      "aspects": ["praecantatio:512", "permutatio:512", "ignis:512", "machina:512", "moolon:512"]
+    },
+    {
+      "type": "arcaneCraftingShaped",
+      "output": "<foxdarkmagic:infinityStorageUpgrade>",
+      "research": "MAGIC_UPGRADE_INFINITY_ASPECT_STORAGE",
+      "vis": ["aer:110", "terra:110", "ignis:110", "aqua:110", "ordo:110", "perditio:110"],
+      "inputs": [
+        "<foxdarkmagic:moonstone>", "<Thaumcraft:WandCap.7>", "<foxdarkmagic:moonstone>",
+        "<Thaumcraft:BlockJarFilledItem>", "<Thaumcraft:blockCosmeticSolid.4>", "<Thaumcraft:BlockJarFilledItem>",
+        "<foxdarkmagic:moonstone>", "<Thaumcraft:WandCap.7>", "<foxdarkmagic:moonstone>"]
+    },
+    {
+      "type": "arcaneCraftingShaped",
+      "output": "<foxdarkmagic:stackUpgrade>",
+      "research": "MAGIC_UPGRADE_STACK",
+      "vis": ["aer:110", "terra:110", "ignis:110", "aqua:110", "ordo:110", "perditio:110"],
+      "inputs": [
+        "<foxdarkmagic:moonstone>", "<Thaumcraft:WandCap.7>", "<foxdarkmagic:moonstone>",
+        "<Thaumcraft:ItemResource.14>", "<Thaumcraft:blockCosmeticSolid.4>", "<Thaumcraft:ItemResource.14>",
+        "<foxdarkmagic:moonstone>", "<Thaumcraft:WandCap.7>", "<foxdarkmagic:moonstone>"]
+    },
+    {
+      "type": "infusion",
+      "instability": 10,
+      "research": "MATRIX_STABILIZER",
+      "output": "<foxdarkmagic:stabilizer>",
+      "catalyst": "<Thaumcraft:ItemEldritchObject.3>",
+      "inputs": ["<Thaumcraft:ItemResource.9>", "<Thaumcraft:ItemEldritchObject>", "<Thaumcraft:ItemResource.14>", "<Thaumcraft:blockWoodenDevice>",
+        "<Thaumcraft:ItemResource.9>", "<Thaumcraft:ItemEldritchObject>", "<Thaumcraft:ItemResource.14>", "<Thaumcraft:blockWoodenDevice>",
+        "<Thaumcraft:ItemResource.9>", "<Thaumcraft:ItemEldritchObject>", "<Thaumcraft:ItemResource.14>", "<Thaumcraft:blockWoodenDevice>",
+        "<Thaumcraft:ItemResource.9>", "<Thaumcraft:ItemEldritchObject>", "<Thaumcraft:ItemResource.14>", "<Thaumcraft:blockWoodenDevice>"],
+      "aspects": ["praecantatio:256", "aer:256", "terra:256", "ignis:256", "aqua:256", "ordo:256", "perditio:256", "moolon:256"]
+    },
+    {
+      "type": "infusion",
+      "instability": 10,
+      "research": "MATTER_DISTORTER",
+      "output": "<foxdarkmagic:matterDistorter>",
+      "catalyst": "<foxdarkmagic:chargedArcaneStone>",
+      "inputs": ["<Thaumcraft:ItemResource.11>", "<Thaumcraft:ItemResource.12>", "<Thaumcraft:blockCosmeticSolid.4>", "<Thaumcraft:blockCosmeticSolid>",
+        "<Thaumcraft:blockCosmeticSolid.4>", "<Thaumcraft:ItemResource.12>", "<Thaumcraft:ItemResource.11>"],
+      "aspects": ["praecantatio:128", "alienis:128", "vitium:128", "permutatio:128", "moolon:128"]
+    }
+  ]
+}

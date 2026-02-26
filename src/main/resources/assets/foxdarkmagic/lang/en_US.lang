@@ -1,4 +1,5 @@
 itemGroup.FOX_DARK_MAGIC_TAB=FoxDarkMagic
+tc.research_category.FOX_DARK_MAGIC=Industrialization
 
 # Blocks
 tile.stabilizer.name=Matrix Stabilizer
@@ -36,3 +37,30 @@ tooltip.holyBook.description=§7Do you believe in Herobrine? And he exists
 tooltip.holyBook.message.1=§6§lYou feel §6§lthat all evil §6§lspirits are §6§lleaving you,
 tooltip.holyBook.message.2=§6§lAnd you are §6§lfilled with §6§la pure aura
 foxdarkmagic.group.essentia.transport=ME Fast Essentia Import/Export Bus
+tc.aspect.moolon=Immeasurable, Сorruption
+tc.research_name.SATURATED_KNOWLEDGE_FRAGMENT=Saturated Knowledge Fragment
+tc.research_text.SATURATED_KNOWLEDGE_FRAGMENT=Crazy knowledge
+tc.skf.page.text1=A unique way to absorb knowledge broadly, in all senses of the word
+tc.research_name.HOLY_BOOK=Holy Book
+tc.research_text.HOLY_BOOK=The Cult of Herobrine
+tc.hb.page.text1=As a true believer, Herobrine grants you forgiveness of all your sins, purifying your body, mind, and soul
+tc.research_name.KNOWLEDGE_BOOK=Book of Knowledge
+tc.research_text.KNOWLEDGE_BOOK=Knowledge that wasn't worth all this blood
+tc.kb.page.text1=For cutting out all of humanity, he grants you absolute knowledge... Is it worth it or yes?
+tc.research_name.CHARGED_ARCANE_STONE=Charged Arcane Stone
+tc.research_text.CHARGED_ARCANE_STONE=Doesn't like the sun
+tc.research_name.SINGULAR_ACHEMICAL_FURNACE=Singular Alchemical Furnace
+tc.research_text.SINGULAR_ACHEMICAL_FURNACE=Stolen from Hell
+tc.saf.page.text1=Invented in hell and not for mortals
+tc.research_name.MAGIC_UPGRADE_INFINITY_ASPECT_STORAGE=Infinity Aspect Storage
+tc.research_text.MAGIC_UPGRADE_INFINITY_ASPECT_STORAGE=Wider than it seems
+tc.muias.page.text1=Unique technology that allows you to expand space using subspace
+tc.research_name.MAGIC_UPGRADE_STACK=Stack
+tc.research_text.MAGIC_UPGRADE_STACK=Bigger than it seems
+tc.mus.page.text1=Unique technology that allows you to overheat the furnace and thereby increase the number of remeltable items up to 64
+tc.research_name.MATRIX_STABILIZER=Matrix Stabilizer
+tc.research_text.MATRIX_STABILIZER=Better than a Chinese monk
+tc.ms.page.text1=An invention that allows for absolute stabilization at 4 units. Each stabilizer accelerates the absorption of aspects
+tc.research_name.MATTER_DISTORTER=Matter Distorter
+tc.research_text.MATTER_DISTORTER=Dark magic that creates light magic
+tc.md.page.text1=Fills the sinister aura node with essence

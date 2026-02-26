@@ -1,7 +1,7 @@
 
 dependencies {
-    implementation ('com.github.GTNewHorizons:AE2FluidCraft-Rework:1.5.48-gtnh:dev') {transitive = false}
-    implementation ('com.github.GTNewHorizons:Applied-Energistics-2-Unofficial:rv3-beta-803-GTNH:dev') {transitive = false}
+    implementation ('com.github.GTNewHorizons:AE2FluidCraft-Rework:1.5.61-gtnh:dev') {transitive = false}
+    implementation ('com.github.GTNewHorizons:Applied-Energistics-2-Unofficial:rv3-beta-838-GTNH:dev') {transitive = false}
     implementation ('com.github.GTNewHorizons:Baubles:1.0.4:dev') {transitive = false}
     implementation ('com.github.GTNewHorizons:CodeChickenCore:1.4.10:dev') {transitive = false}
     implementation ('com.github.GTNewHorizons:CraftTweaker:3.4.2:dev') {transitive = false}
@@ -12,6 +12,7 @@ dependencies {
     implementation ('com.github.GTNewHorizons:ThaumicEnergistics:1.7.22-GTNH:dev') {transitive = false}
     implementation ('net.industrial-craft:industrialcraft-2:2.2.828-experimental:dev') {transitive = false}
     implementation ('com.github.GTNewHorizons:Salis-Arcana:1.1.46-GTNH:dev') {transitive = false}
+    implementation ('com.github.GTNewHorizons:TCNEIAdditions:1.5.13') {transitive = false}
 
     implementation(rfg.deobf(project.fileTree(dir: 'libs', includes: ['*'])))
     //implementation(project.fileTree(dir: 'libs', includes: ['*']))

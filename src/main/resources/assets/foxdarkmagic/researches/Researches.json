@@ -1,0 +1,110 @@
+{
+  "aspects": {
+    "<foxdarkmagic:moonstone>": ["moolon:3"],
+    "<foxdarkmagic:stabilizer>": ["praecantatio:128", "ordo:96", "motus:48", "fames:48", "moolon:12"],
+    "<foxdarkmagic:matterDistorter>": ["praecantatio:32", "alienis:32", "vitium:32", "permutatio:32", "moolon:6"],
+    "<foxdarkmagic:singularAlchemicalFurnace>": ["praecantatio:32", "permutatio:32", "ignis:32", "machina:16", "moolon:6"],
+    "<foxdarkmagic:chargedArcaneStone>": ["terra:5", "praecantatio:5"],
+    "<foxdarkmagic:infinityStorageUpgrade>": ["vacuos:36", "praecantatio:12", "moolon:3"],
+    "<foxdarkmagic:stackUpgrade>": ["motus:36", "praecantatio:12", "moolon:3"],
+    "<foxdarkmagic:knowledgeBook>": ["praecantatio:256", "instrumentum:128", "cognitio:128"],
+    "<foxdarkmagic:holyBook>": ["praecantatio:256", "instrumentum:128", "victus:128"],
+    "<foxdarkmagic:saturatedKnowledgeFragment>": ["praecantatio:26", "cognitio:26"],
+    "<foxdarkmagic:foxdarkmagic.aeparts>": ["metallum:8", "motus:8", "aqua:4", "perditio:3", "potentia:3", "ordo:3"],
+    "<foxdarkmagic:foxdarkmagic.aeparts.1>": ["metallum:8", "motus:8", "aqua:4", "ordo:4", "potentia:3", "vitreus:1"]
+  },
+  "categories": {
+    "FOX_DARK_MAGIC": {
+      "icon": "foxdarkmagic:textures/items/saturatedKnowledgeFragment.png",
+      "background": "thaumcraft:textures/gui/gui_researchback.png"
+    }
+  },
+  "pages": {
+    "SATURATED_KNOWLEDGE_FRAGMENT": {
+      "icon": "<foxdarkmagic:saturatedKnowledgeFragment>",
+      "category": "FOX_DARK_MAGIC",
+      "x": 4,
+      "y": 4,
+      "complex": 3,
+      "aspects": ["cognitio:1", "praecantatio:1", "aer:1", "terra:1", "ignis:1", "aqua:1", "ordo:1", "perditio:1", "moolon:1"],
+      "text": ["tc.skf.page.text1"]
+    },
+    "HOLY_BOOK": {
+      "icon": "<foxdarkmagic:holyBook>",
+      "category": "FOX_DARK_MAGIC",
+      "x": 5,
+      "y": 3,
+      "complex": 3,
+      "aspects": ["victus:1", "fames:1", "lux:1", "terminus:1", "moolon:1"],
+      "text": ["tc.hb.page.text1"],
+      "parents": ["SATURATED_KNOWLEDGE_FRAGMENT"]
+    },
+    "KNOWLEDGE_BOOK": {
+      "icon": "<foxdarkmagic:knowledgeBook>",
+      "category": "FOX_DARK_MAGIC",
+      "x": 6,
+      "y": 2,
+      "complex": 3,
+      "aspects": ["cognitio:1", "praecantatio:1", "fames:1", "terminus:1", "moolon:1"],
+      "text": ["tc.kb.page.text1"],
+      "parents": ["HOLY_BOOK"]
+    },
+    "CHARGED_ARCANE_STONE": {
+      "icon": "<foxdarkmagic:chargedArcaneStone>",
+      "category": "FOX_DARK_MAGIC",
+      "x": 3,
+      "y": 5,
+      "complex": 1,
+      "aspects": ["terra:1", "praecantatio:1", "ignis:1"]
+    },
+    "SINGULAR_ACHEMICAL_FURNACE": {
+      "icon": "<foxdarkmagic:singularAlchemicalFurnace>",
+      "category": "FOX_DARK_MAGIC",
+      "x": 3,
+      "y": 2,
+      "complex": 3,
+      "aspects": ["praecantatio:1", "permutatio:1", "ignis:1", "machina:1", "moolon:1"],
+      "text": ["tc.saf.page.text1"],
+      "parents": ["ADVALCHEMYFURNACE", "MATRIX_STABILIZER"]
+    },
+    "MAGIC_UPGRADE_INFINITY_ASPECT_STORAGE": {
+      "icon": "<foxdarkmagic:infinityStorageUpgrade>",
+      "category": "FOX_DARK_MAGIC",
+      "x": 2,
+      "y": 3,
+      "complex": 2,
+      "aspects": ["praecantatio:1", "vacuos:1", "moolon:1"],
+      "text": ["tc.muias.page.text1"],
+      "parents": ["SINGULAR_ACHEMICAL_FURNACE"]
+    },
+    "MAGIC_UPGRADE_STACK": {
+      "icon": "<foxdarkmagic:stackUpgrade>",
+      "category": "FOX_DARK_MAGIC",
+      "x": 4,
+      "y": 1,
+      "complex": 2,
+      "aspects": ["praecantatio:1", "motus:1", "moolon:1"],
+      "text": ["tc.mus.page.text1"],
+      "parents": ["SINGULAR_ACHEMICAL_FURNACE"]
+    },
+    "MATRIX_STABILIZER": {
+      "icon": "<foxdarkmagic:stabilizer>",
+      "category": "FOX_DARK_MAGIC",
+      "x": 5,
+      "y": 0,
+      "complex": 3,
+      "aspects": ["praecantatio:1", "aer:1", "terra:1", "ignis:1", "aqua:1", "ordo:1", "perditio:1", "moolon:1"],
+      "text": ["tc.ms.page.text1"]
+    },
+    "MATTER_DISTORTER": {
+      "icon": "<foxdarkmagic:matterDistorter>",
+      "category": "FOX_DARK_MAGIC",
+      "x": 1,
+      "y": 4,
+      "complex": 3,
+      "aspects": ["praecantatio:1", "alienis:1", "vitium:1", "permutatio:1", "moolon:1"],
+      "text": ["tc.md.page.text1"],
+      "parents": ["CHARGED_ARCANE_STONE"]
+    }
+  }
+}

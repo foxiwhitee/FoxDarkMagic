@@ -3,6 +3,7 @@ package foxiwhitee.FoxDarkMagic;
 import cpw.mods.fml.common.Mod;
 import cpw.mods.fml.common.SidedProxy;
 import cpw.mods.fml.common.event.FMLInitializationEvent;
+import cpw.mods.fml.common.event.FMLLoadCompleteEvent;
 import cpw.mods.fml.common.event.FMLPostInitializationEvent;
 import cpw.mods.fml.common.event.FMLPreInitializationEvent;
 import foxiwhitee.FoxDarkMagic.proxy.CommonProxy;
@@ -18,7 +19,7 @@ public class DarkCore {
         MODID = "foxdarkmagic",
         MODNAME = "FoxDarkMagic",
         VERSION = "1.0.0",
-        DEPEND = "required-after:Thaumcraft;required-after:foxlib;after:appliedenergistics2;";
+        DEPEND = "required-after:Thaumcraft;required-after:foxlib;after:appliedenergistics2;after:thaumicenergistics;";
 
     public static final CreativeTabs TAB = new CreativeTabs("FOX_DARK_MAGIC_TAB") {
         @Override
@@ -46,5 +47,10 @@ public class DarkCore {
     @Mod.EventHandler
     public void postInit(FMLPostInitializationEvent e) {
         proxy.postInit(e);
+    }
+
+    @Mod.EventHandler
+    public void loadComplete(FMLLoadCompleteEvent event) {
+        ThaumicThinks.postInit();
     }
 }

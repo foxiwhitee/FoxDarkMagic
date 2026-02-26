@@ -38,4 +38,7 @@ public class ContentConfig {
 
     @ConfigValue(category = "Content", desc = "Enable Fast Buses?")
     public static boolean enableFastBuses = true;
+
+    @ConfigValue(category = "Content", desc = "Enable Moolon Aspect?")
+    public static boolean enableMoolonAspect = true;
 }

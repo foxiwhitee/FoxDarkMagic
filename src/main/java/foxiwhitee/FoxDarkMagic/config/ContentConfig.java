@@ -41,4 +41,22 @@ public class ContentConfig {
 
     @ConfigValue(category = "Content", desc = "Enable Moolon Aspect?")
     public static boolean enableMoolonAspect = true;
+
+    @ConfigValue(category = "Content", desc = "Enable Basic Arcane Molecular Assembler?")
+    public static boolean enableBasicArcaneMolecularAssembler = true;
+
+    @ConfigValue(category = "Content", desc = "Enable Advanced Arcane Molecular Assembler?")
+    public static boolean enableAdvancedArcaneMolecularAssembler = true;
+
+    @ConfigValue(category = "Content", desc = "Enable Hybrid Arcane Molecular Assembler?")
+    public static boolean enableHybridArcaneMolecularAssembler = true;
+
+    @ConfigValue(category = "Content", desc = "Enable Ultimate Arcane Molecular Assembler?")
+    public static boolean enableUltimateArcaneMolecularAssembler = true;
+
+    @ConfigValue(category = "Content", desc = "Enable Infusion Molecular Assembler?")
+    public static boolean enableInfusionMolecularAssembler = true;
+
+    @ConfigValue(category = "Content", desc = "Enable Crucible Molecular Assembler?")
+    public static boolean enableCrucibleMolecularAssembler = true;
 }

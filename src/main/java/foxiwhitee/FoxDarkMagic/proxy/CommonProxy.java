@@ -1,6 +1,7 @@
 package foxiwhitee.FoxDarkMagic.proxy;
 
 import cpw.mods.fml.common.event.FMLInitializationEvent;
+import cpw.mods.fml.common.event.FMLLoadCompleteEvent;
 import cpw.mods.fml.common.event.FMLPostInitializationEvent;
 import cpw.mods.fml.common.event.FMLPreInitializationEvent;
 import cpw.mods.fml.common.registry.EntityRegistry;
@@ -39,5 +40,9 @@ public class CommonProxy {
     public void postInit(FMLPostInitializationEvent event) {
         ModRecipes.initRecipes();
         IntegrationLoader.postInit(event);
+    }
+
+    public void afterInit(FMLLoadCompleteEvent event) {
+        ThaumicThinks.postInit();
     }
 }

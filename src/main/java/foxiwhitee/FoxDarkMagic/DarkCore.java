@@ -51,6 +51,6 @@ public class DarkCore {
 
     @Mod.EventHandler
     public void loadComplete(FMLLoadCompleteEvent event) {
-        ThaumicThinks.postInit();
+        proxy.afterInit(event);
     }
 }

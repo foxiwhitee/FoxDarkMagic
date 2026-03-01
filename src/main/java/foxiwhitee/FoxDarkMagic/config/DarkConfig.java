@@ -49,4 +49,14 @@ public class DarkConfig {
     @ConfigValue(category = "FastBuses", name = "maxSpeed", desc = "Maximum speed of fast tires import/export essence")
     public static int fastBusesMaxSpeed = 10000;
 
+
+    @ConfigValue(category = "NEI.Recipes.Crucible", name = "shouldShow", desc = "Is it necessary to show the recipe even if it is not studied?")
+    public static boolean shouldShowCrucibleRecipes = false;
+
+    @ConfigValue(category = "NEI.Recipes.Arcane", name = "shouldShow", desc = "Is it necessary to show the recipe even if it is not studied?")
+    public static boolean shouldShowArcaneRecipes = false;
+
+    @ConfigValue(category = "NEI.Recipes.Infusion", name = "shouldShow", desc = "Is it necessary to show the recipe even if it is not studied?")
+    public static boolean shouldShowInfusionRecipes = false;
+
 }

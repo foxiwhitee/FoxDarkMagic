@@ -62,7 +62,7 @@ public abstract class ArcaneShapelessCachedRecipeMixin implements IAdvancedAspec
         )
     )
     private PositionedStack redirectInputStack(Object out, int x, int y, boolean expendable) {
-        return new PositionedStack(out, x + 1, y, expendable);
+        return new PositionedStack(out, x + 1, y == 32 ? 33 : y, expendable);
     }
 
     @Inject(

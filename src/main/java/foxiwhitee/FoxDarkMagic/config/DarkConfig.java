@@ -28,9 +28,6 @@ public class DarkConfig {
     @ConfigValue(category = "Furnace", name = "storage", desc = "Maximum storage amount of one essence")
     public static int singularArcaneFurnaceStorage = 42_949_672;
 
-    @ConfigValue(category = "Furnace", name = "ignoreStorageBus", desc = "If true then Essentia Storage Bus will not work with this block")
-    public static boolean singularArcaneFurnaceIgnoreStorageBus = false;
-
 
     @ConfigValue(category = "ChargedArcaneStone", name = "removeBlock", desc = "Should the block be removed after the ritual?")
     public static boolean chargedArcaneStoneRemoveAfterRitual = false;
@@ -45,9 +42,6 @@ public class DarkConfig {
 
     @ConfigValue(category = "FastBuses", name = "additionallySpeed", desc = "Additional speed per boost card for fast essence import/export tiress")
     public static int fastBusesAdditionallySpeed = 2048;
-
-    @ConfigValue(category = "FastBuses", name = "maxSpeed", desc = "Maximum speed of fast tires import/export essence")
-    public static int fastBusesMaxSpeed = 10000;
 
 
     @ConfigValue(category = "NEI.Recipes.Crucible", name = "shouldShow", desc = "Is it necessary to show the recipe even if it is not studied?")

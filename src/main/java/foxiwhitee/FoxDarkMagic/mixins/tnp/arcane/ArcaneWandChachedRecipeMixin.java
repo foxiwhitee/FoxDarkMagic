@@ -12,7 +12,6 @@ import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.Redirect;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
-import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 import thaumcraft.api.ThaumcraftApiHelper;
 import thaumcraft.api.aspects.Aspect;
 import thaumcraft.api.aspects.AspectList;
@@ -105,16 +104,18 @@ public abstract class ArcaneWandChachedRecipeMixin implements IAdvancedAspectRec
         return false;
     }
 
-    @Dynamic
-    @Inject(
-        method = "getIngredients()Ljava/util/List;",
-        at = @At("HEAD"),
-        cancellable = true,
-        remap = false
-    )
-    private void onGetIngredients(CallbackInfoReturnable<List<?>> cir) {
+    @SuppressWarnings("all")
+    public List<PositionedStack> getIngredients() {
         if (!this.foxDarkMagic$show) {
-            cir.setReturnValue(Collections.emptyList());
+            return Collections.emptyList();
+        }
+
+        try {
+            java.lang.reflect.Field field = this.getClass().getSuperclass().getDeclaredField("ingredients");
+            field.setAccessible(true);
+            return (List<PositionedStack>) field.get(this);
+        } catch (Exception e) {
+            return java.util.Collections.emptyList();
         }
     }
 }

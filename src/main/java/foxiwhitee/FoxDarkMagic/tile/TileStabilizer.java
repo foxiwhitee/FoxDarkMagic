@@ -1,15 +1,12 @@
 package foxiwhitee.FoxDarkMagic.tile;
 
-import cpw.mods.fml.common.Optional;
 import cpw.mods.fml.common.network.NetworkRegistry;
-import dev.rndmorris.salisarcana.api.IVariableInfusionStabilizer;
 import foxiwhitee.FoxDarkMagic.api.IInfusionMatrixAccessor;
 import foxiwhitee.FoxLib.tile.FoxBaseTile;
 import foxiwhitee.FoxLib.tile.event.TileEvent;
 import foxiwhitee.FoxLib.tile.event.TileEventType;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.tileentity.TileEntity;
-import net.minecraft.world.World;
 import thaumcraft.api.WorldCoordinates;
 import thaumcraft.api.aspects.Aspect;
 import thaumcraft.api.aspects.AspectList;
@@ -22,6 +19,7 @@ import thaumcraft.common.tiles.TileMirrorEssentia;
 import java.util.HashMap;
 import java.util.Map;
 
+@SuppressWarnings("unused")
 public class TileStabilizer extends FoxBaseTile {
     private static final int RANGE = 5;
     private static final int SCAN_INTERVAL = 40;
@@ -133,6 +131,8 @@ public class TileStabilizer extends FoxBaseTile {
             new NetworkRegistry.TargetPoint(worldObj.provider.dimensionId, mx, my, mz, 32.0D));
     }
 
+
+    @SuppressWarnings("all")
     private AspectList getRecipeEssentia(TileInfusionMatrix matrix) {
         try {
             return ((IInfusionMatrixAccessor)((Object)matrix)).foxDarkMagic$getRecipeEssentiaDirect();

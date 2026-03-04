@@ -61,8 +61,13 @@ public class TileArcaneEncoder extends TileUniversalPatternEncoder {
     @Override
     public void overlayRecipe(NBTTagCompound nbtTagCompound, EntityPlayer entityPlayer) {
         List<List<ItemStack>> all = readIngredients(nbtTagCompound);
-        if (!all.isEmpty()) {
-
+        for (int i = 0; i < all.size(); i++) {
+            List<ItemStack> list = all.get(i);
+            if (list != null && !list.isEmpty()) {
+                getCraftingInventory().setInventorySlotContents(i, list.get(0));
+            } else {
+                getCraftingInventory().setInventorySlotContents(i, null);
+            }
         }
     }
 

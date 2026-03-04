@@ -2,10 +2,7 @@ package foxiwhitee.FoxDarkMagic.helpers;
 
 import codechicken.nei.NEIServerUtils;
 import com.djgiannuzz.thaumcraftneiplugin.items.ItemAspect;
-import com.djgiannuzz.thaumcraftneiplugin.nei.NEIHelper;
 import foxiwhitee.FoxLib.utils.helpers.ItemStackUtil;
-import net.glease.tc4tweak.api.infusionrecipe.EnhancedInfusionRecipe;
-import net.glease.tc4tweak.api.infusionrecipe.InfusionRecipeExt;
 import net.minecraft.inventory.IInventory;
 import net.minecraft.item.ItemStack;
 import thaumcraft.api.ThaumcraftApi;
@@ -17,6 +14,7 @@ import thaumcraft.api.crafting.ShapedArcaneRecipe;
 
 import java.lang.reflect.Field;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 public class RecipesHelper {
@@ -190,42 +188,30 @@ public class RecipesHelper {
             Object[] comps = raw.getComponents();
             if (comps == null) continue;
 
-            EnhancedInfusionRecipe tcRecipe;
-            try {
-                tcRecipe = InfusionRecipeExt.get().convert(raw);
-            } catch (RuntimeException e) {
-                continue;
-            }
-            if (tcRecipe == null) continue;
-
-            if (tcRecipe.getCentral() == null || ((tcRecipe.getRecipeOutput() instanceof ItemStack stack && stack.getItem() == null) ? tcRecipe.getRecipeOutput() : NEIHelper.getAssociatedItemStack(tcRecipe.getRecipeOutput())) == null) {
-                continue;
-            }
-
             boolean aspectsContain = false;
             if (inputIsAspectItem && inputAspect != null
-                && tcRecipe.getAspects() != null
-                && tcRecipe.getAspects().aspects != null) {
-                aspectsContain = tcRecipe.getAspects().aspects.containsKey(inputAspect);
+                && raw.getAspects() != null
+                && raw.getAspects().aspects != null) {
+                aspectsContain = raw.getAspects().aspects.containsKey(inputAspect);
             }
 
             if (inputIsAspectItem) {
-                if (aspectsContain) list.add(tcRecipe);
+                if (aspectsContain) list.add(raw);
             } else {
-                boolean centralMatches = tcRecipe.getCentral().matches(input);
+                boolean centralMatches = ItemStackUtil.matchesStackAndOther(input, raw.getRecipeInput());
 
                 boolean componentMatches = false;
-                if (tcRecipe.getComponentsExt() != null && !tcRecipe.getComponentsExt().isEmpty()) {
-                    componentMatches = tcRecipe.getComponentsExt().stream().anyMatch(c -> {
+                if (raw.getComponents() != null && raw.getComponents().length == 0) {
+                    componentMatches = Arrays.stream(raw.getComponents()).anyMatch(c -> {
                         try {
-                            return c != null && c.matches(input);
+                            return ItemStackUtil.matchesStackAndOther(input, c);
                         } catch (Throwable t) {
                             return false;
                         }
                     });
                 }
 
-                if (centralMatches || componentMatches) list.add(tcRecipe);
+                if (centralMatches || componentMatches) list.add(raw);
             }
         }
 

@@ -1,6 +1,7 @@
 package foxiwhitee.FoxDarkMagic.integrations.appeng.parts;
 
 import appeng.api.config.Upgrades;
+import appeng.api.parts.IPart;
 import foxiwhitee.FoxDarkMagic.DarkCore;
 import foxiwhitee.FoxDarkMagic.integrations.appeng.AE2Integration;
 import net.minecraft.item.ItemStack;
@@ -24,19 +25,18 @@ public enum ModParts {
 
     public static final ModParts[] VALUES = ModParts.values();
     private final String unlocalizedName;
-    private final Class<? extends BasePart> partClass;
+    private final Class<? extends IPart> partClass;
     private final String groupName;
     private final Map<Upgrades, Integer> upgrades = new HashMap<>();
 
-    ModParts(final String unlocalizedName, final Class<? extends BasePart> partClass,
-                        final String groupName) {
+    ModParts(final String unlocalizedName, final Class<? extends IPart> partClass, final String groupName) {
         this.unlocalizedName = unlocalizedName;
         this.partClass = partClass;
         this.groupName = groupName;
     }
 
     @SafeVarargs
-    ModParts(final String unlocalizedName, final Class<? extends BasePart> partClass,
+    ModParts(final String unlocalizedName, final Class<? extends IPart> partClass,
              final String groupName, final Pair<Upgrades, Integer>... upgrades) {
         this(unlocalizedName, partClass, groupName);
 
@@ -55,12 +55,8 @@ public enum ModParts {
         return ModParts.VALUES[clamped];
     }
 
-    public BasePart createPartInstance(final ItemStack itemStack) throws Exception {
-        BasePart part = this.partClass.getDeclaredConstructor().newInstance();
-
-        part.setupPartFromItem(itemStack);
-
-        return part;
+    public IPart createPartInstance(final ItemStack itemStack) throws Exception {
+        return this.partClass.getConstructor(ItemStack.class).newInstance(itemStack);
     }
 
     public String getGroupName() {

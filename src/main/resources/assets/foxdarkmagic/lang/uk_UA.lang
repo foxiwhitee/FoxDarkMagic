@@ -5,6 +5,8 @@ tile.matterDistorter.name=Спотворювач матерії
 tile.singularAlchemicalFurnace.name=Сингулярна алхімічна піч
 tile.chargedArcaneStone.name=Заряджений магічний камінь
 tile.arcaneEncoder.name=Кодувальник магічного верстаку
+tile.crucibleEncoder.name=Кодувальник тигля
+tile.infusionEncoder.name=Кодувальник інфузії
 
 # Items
 item.stackUpgrade.name=Магічне покращення: Стак
@@ -16,6 +18,8 @@ item.holyBook.name=Священна книга
 aeparts.essentia.FastExportBus.name=ME Швидка шина експорту есенції
 aeparts.essentia.FastImportBus.name=ME Швидка шина імпорту есенції
 item.encodedArcanePattern.name=Закодований магічний шаблон
+item.encodedCruciblePattern.name=Закодований шаблон тигля
+item.encodedInfusionPattern.name=Закодований шаблон інфузії
 
 # Tooltips
 tooltip.stabilizer.description.1=§7Стабілізує матрицю. Ідеально стабілізує матрицю, якщо є §34 стабілізатори 
@@ -65,6 +69,7 @@ tc.research_name.MATTER_DISTORTER=Спотворювач матерії
 tc.research_text.MATTER_DISTORTER=Темна магія, що створює світлу магію
 tc.md.page.text1=Наповнює зловісний вузол аури есенцією
 tooltip.pattern.vis=Потребує віс:
+tooltip.pattern.aspects=Потребує есенції:
 tooltip.encode=Закодувати
 aspectRecipes=Створення аспектів
 aspectInItems=Аспект в предметах

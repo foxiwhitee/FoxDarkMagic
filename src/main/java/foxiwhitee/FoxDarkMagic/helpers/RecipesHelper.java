@@ -5,6 +5,7 @@ import com.djgiannuzz.thaumcraftneiplugin.items.ItemAspect;
 import foxiwhitee.FoxLib.utils.helpers.ItemStackUtil;
 import net.minecraft.inventory.IInventory;
 import net.minecraft.item.ItemStack;
+import net.minecraftforge.oredict.OreDictionary;
 import thaumcraft.api.ThaumcraftApi;
 import thaumcraft.api.aspects.Aspect;
 import thaumcraft.api.aspects.AspectList;
@@ -18,6 +19,69 @@ import java.util.Arrays;
 import java.util.List;
 
 public class RecipesHelper {
+    public static boolean matchesInfusion(IInventory inventory, InfusionRecipe recipe) {
+        if (recipe.getRecipeInput() == null || inventory.getStackInSlot(0) == null) {
+            return false;
+        }
+        ItemStack i2 = inventory.getStackInSlot(0);
+        if (recipe.getRecipeInput().getItemDamage() == 32767) {
+            i2.setItemDamage(32767);
+        }
+
+        if (!areItemStacksEqual(i2, recipe.getRecipeInput())) {
+            return false;
+        } else {
+            List<ItemStack> ii = new ArrayList<>();
+
+            for (int i = 1; i < inventory.getSizeInventory(); i++) {
+                ItemStack st = inventory.getStackInSlot(i);
+                if (st != null) {
+                    ii.add(st);
+                }
+            }
+
+            for(ItemStack comp : recipe.getComponents()) {
+                boolean b = false;
+
+                for(int a = 0; a < ii.size(); ++a) {
+                    i2 = ii.get(a).copy();
+                    if (comp.getItemDamage() == 32767) {
+                        i2.setItemDamage(32767);
+                    }
+
+                    if (areItemStacksEqual(i2, comp)) {
+                        ii.remove(a);
+                        b = true;
+                        break;
+                    }
+                }
+
+                if (!b) {
+                    return false;
+                }
+            }
+
+            return ii.isEmpty();
+        }
+    }
+
+    private static boolean areItemStacksEqual(ItemStack i1, ItemStack i2) {
+        int[] ids = OreDictionary.getOreIDs(i1);
+        if (ids.length > 0) {
+            boolean b = false;
+            for (int i : ids) {
+                String key = OreDictionary.getOreName(i);
+                if (key != null) {
+                    b |= ItemStackUtil.matchesStackAndOther(i2, key);
+                }
+            }
+            if (b) {
+                return true;
+            }
+        }
+        return ItemStackUtil.stackEquals(i1, i2);
+    }
+
     public static boolean matchesArcaneShapeless(IInventory var1, List<Object> input) {
         ArrayList<Object> required = new ArrayList<>(input);
 

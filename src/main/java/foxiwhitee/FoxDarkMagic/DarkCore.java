@@ -8,7 +8,6 @@ import cpw.mods.fml.common.event.FMLPostInitializationEvent;
 import cpw.mods.fml.common.event.FMLPreInitializationEvent;
 import foxiwhitee.FoxDarkMagic.proxy.CommonProxy;
 import net.minecraft.creativetab.CreativeTabs;
-import net.minecraft.init.Blocks;
 import net.minecraft.item.Item;
 
 import static foxiwhitee.FoxDarkMagic.DarkCore.*;
@@ -24,7 +23,7 @@ public class DarkCore {
     public static final CreativeTabs TAB = new CreativeTabs("FOX_DARK_MAGIC_TAB") {
         @Override
         public Item getTabIconItem() {
-            return Item.getItemFromBlock(Blocks.bedrock);
+            return ModItems.stackUpgrade;
         }
     };
 

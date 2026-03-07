@@ -7,6 +7,8 @@ tile.matterDistorter.name=Matter Distorter
 tile.singularAlchemicalFurnace.name=Singular Alchemical Furnace
 tile.chargedArcaneStone.name=Charged Arcane Stone
 tile.arcaneEncoder.name=Arcane Worktable Encoder
+tile.crucibleEncoder.name=Crucible Encoder
+tile.infusionEncoder.name=Infusion Encoder
 
 # Items
 item.stackUpgrade.name=Magic Upgrade: Stack
@@ -18,6 +20,8 @@ item.holyBook.name=Holy book
 aeparts.essentia.FastExportBus.name=ME Fast Essentia Export Bus
 aeparts.essentia.FastImportBus.name=ME Fast Essentia Import Bus
 item.encodedArcanePattern.name=Encoded Arcane Pattern
+item.encodedCruciblePattern.name=Encoded Crucible Pattern
+item.encodedInfusionPattern.name=Encoded Infusion Pattern
 
 # Tooltips
 tooltip.stabilizer.description.1=§7Stabilizes the matrix. Ideally stabilizes the matrix if there are §34 stabilizers
@@ -67,6 +71,7 @@ tc.research_name.MATTER_DISTORTER=Matter Distorter
 tc.research_text.MATTER_DISTORTER=Dark magic that creates light magic
 tc.md.page.text1=Fills the sinister aura node with essence
 tooltip.pattern.vis=Need vis:
+tooltip.pattern.aspects=Need Aspects:
 tooltip.encode=Encode
 aspectRecipes=Creating aspects
 aspectInItems=Aspect in items

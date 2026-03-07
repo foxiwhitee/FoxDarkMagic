@@ -12,7 +12,7 @@ dependencies {
     implementation ('com.github.GTNewHorizons:ThaumicEnergistics:1.7.31-GTNH:dev') {transitive = false}
     implementation ('net.industrial-craft:industrialcraft-2:2.2.828-experimental:dev') {transitive = false}
     implementation ('com.github.GTNewHorizons:Salis-Arcana:1.1.47-GTNH:dev') {transitive = false}
-    implementation ('net.glease:tc4tweaks:1.5.43') {transitive = false}
+    implementation ('net.glease:tc4tweaks:1.5.43:dev') {transitive = false}
 
     implementation(rfg.deobf(project.fileTree(dir: 'libs', includes: ['*'])))
     //implementation(project.fileTree(dir: 'libs', includes: ['*']))

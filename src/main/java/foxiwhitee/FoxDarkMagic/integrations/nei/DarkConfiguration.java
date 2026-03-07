@@ -5,6 +5,8 @@ import com.djgiannuzz.thaumcraftneiplugin.items.ItemAspect;
 import foxiwhitee.FoxDarkMagic.DarkCore;
 import foxiwhitee.FoxDarkMagic.config.ContentConfig;
 import foxiwhitee.FoxDarkMagic.integrations.appeng.client.gui.encoders.GuiArcaneEncoder;
+import foxiwhitee.FoxDarkMagic.integrations.appeng.client.gui.encoders.GuiCrucibleEncoder;
+import foxiwhitee.FoxDarkMagic.integrations.appeng.client.gui.encoders.GuiInfusionEncoder;
 import foxiwhitee.FoxDarkMagic.integrations.nei.helpers.AspectInItemsHelper;
 import foxiwhitee.FoxDarkMagic.integrations.nei.helpers.AspectRecipeHelper;
 import foxiwhitee.FoxLib.nei.NeiConfiguration;
@@ -61,7 +63,11 @@ public class DarkConfiguration extends NeiProcessor {
             .doNextIf(ContentConfig.enableBasicArcaneMolecularAssembler || ContentConfig.enableAdvancedArcaneMolecularAssembler || ContentConfig.enableHybridArcaneMolecularAssembler || ContentConfig.enableUltimateArcaneMolecularAssembler)
             .addOverlay(GuiArcaneEncoder.class, "arcaneshapedrecipes")
             .addOverlay(GuiArcaneEncoder.class, "arcaneshapelessrecipes")
-            .addOverlaySorting(GuiArcaneEncoder.class, DarkConfiguration::sort);
+            .addOverlaySorting(GuiArcaneEncoder.class, DarkConfiguration::sort)
+            .doNextIf(ContentConfig.enableCrucibleMolecularAssembler)
+            .addOverlay(GuiCrucibleEncoder.class, "cruciblerecipe")
+            .doNextIf(ContentConfig.enableInfusionMolecularAssembler)
+            .addOverlay(GuiInfusionEncoder.class, "infusionCrafting");
     }
 
     private static List<PositionedStack> sort(List<PositionedStack> items) {

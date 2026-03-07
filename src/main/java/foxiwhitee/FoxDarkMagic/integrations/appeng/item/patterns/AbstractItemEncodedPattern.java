@@ -9,8 +9,6 @@ import appeng.util.Platform;
 import appeng.util.item.AEItemStack;
 import codechicken.nei.NEIClientConfig;
 import foxiwhitee.FoxDarkMagic.DarkCore;
-import foxiwhitee.FoxDarkMagic.integrations.appeng.api.IAspectPatternHelper;
-import foxiwhitee.FoxLib.utils.helpers.LocalizationUtils;
 import net.minecraft.client.gui.GuiScreen;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Blocks;
@@ -19,7 +17,6 @@ import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.util.EnumChatFormatting;
 import net.minecraft.util.StringUtils;
 import net.minecraft.world.World;
-import thaumcraft.api.aspects.Aspect;
 
 import java.text.NumberFormat;
 import java.util.*;
@@ -29,7 +26,7 @@ import static appeng.helpers.PatternHelper.convertToCondensedAEList;
 import static appeng.helpers.UltimatePatternHelper.loadIAEStackFromNBT;
 
 public abstract class AbstractItemEncodedPattern extends ItemEncodedPattern {
-    private static final Locale locale = Locale.getDefault();
+    protected static final Locale locale = Locale.getDefault();
 
     public AbstractItemEncodedPattern(String name) {
         super();
@@ -65,23 +62,12 @@ public abstract class AbstractItemEncodedPattern extends ItemEncodedPattern {
             outItems = details.getCondensedAEOutputs();
         }
 
-        boolean recipeIsBroken = !(details instanceof IAspectPatternHelper helper) || helper.getAspects().size() < 1;
+        boolean recipeIsBroken = isRecipeBroken(details);
         final List<String> in = new ArrayList<>();
         final List<String> out = new ArrayList<>();
         final List<String> aspects = new ArrayList<>();
 
-        if (details instanceof IAspectPatternHelper helper) {
-            aspects.add(EnumChatFormatting.DARK_PURPLE + LocalizationUtils.localize(aspectsLocalizationKey()));
-            for (Aspect aspect : helper.getAspects().getAspects()) {
-                String itemCountText = NumberFormat.getNumberInstance(locale).format(helper.getAspects().getAmount(aspect));
-                aspects.add("   " + EnumChatFormatting.WHITE
-                    + itemCountText
-                    + EnumChatFormatting.RESET
-                    + EnumChatFormatting.LIGHT_PURPLE
-                    + " "
-                    + aspect.getName());
-            }
-        }
+        addAdditionallyText(aspects, details);
 
         final String substitutionLabel = EnumChatFormatting.YELLOW + GuiText.Substitute.getLocal() + " " + EnumChatFormatting.RESET;
         final String beSubstitutionLabel = EnumChatFormatting.YELLOW + GuiText.BeSubstitute.getLocal() + " " + EnumChatFormatting.RESET;
@@ -92,7 +78,7 @@ public abstract class AbstractItemEncodedPattern extends ItemEncodedPattern {
         final String holdShift = EnumChatFormatting.GRAY + GuiText.HoldShift.getLocal() + EnumChatFormatting.RESET;
         final String viewPattern = EnumChatFormatting.GRAY + String.format(GuiText.PatternView.getLocal(), NEIClientConfig.getKeyName("gui.pattern_view")) + EnumChatFormatting.RESET;
 
-        recipeIsBroken = addInformation(inItems, in, ingredients, EnumChatFormatting.GREEN)
+        recipeIsBroken = addInputInformation(inItems, in, ingredients)
             || recipeIsBroken;
         recipeIsBroken = addInformation(outItems, out, result, EnumChatFormatting.AQUA)
             || recipeIsBroken;
@@ -121,7 +107,7 @@ public abstract class AbstractItemEncodedPattern extends ItemEncodedPattern {
     }
 
     @SuppressWarnings("all")
-    private boolean addInformation(final IAEStack<?>[] items, final List<String> lines, String label, EnumChatFormatting color) {
+    protected boolean addInformation(final IAEStack<?>[] items, final List<String> lines, String label, EnumChatFormatting color) {
         final ItemStack unknownItem = new ItemStack(Blocks.fire);
         boolean recipeIsBroken = false;
         boolean first = true;
@@ -171,5 +157,11 @@ public abstract class AbstractItemEncodedPattern extends ItemEncodedPattern {
     @Override
     public abstract ICraftingPatternDetails getPatternForItem(ItemStack is, World w);
 
-    protected abstract String aspectsLocalizationKey();
+    protected abstract boolean isRecipeBroken(ICraftingPatternDetails details);
+
+    protected abstract void addAdditionallyText(List<String> aspects, ICraftingPatternDetails details);
+
+    protected boolean addInputInformation(final IAEStack<?>[] inItems, final List<String> in, String ingredients) {
+        return addInformation(inItems, in, ingredients, EnumChatFormatting.GREEN);
+    }
 }

@@ -59,4 +59,7 @@ public class ContentConfig {
 
     @ConfigValue(category = "Content", desc = "Enable Crucible Molecular Assembler?")
     public static boolean enableCrucibleMolecularAssembler = true;
+
+    @ConfigValue(category = "Content", desc = "Enable Abraham's Seal?")
+    public static boolean enableAbrahamSeal = true;
 }

@@ -15,7 +15,7 @@ import java.text.NumberFormat;
 import java.util.ArrayList;
 import java.util.List;
 
-public class ItemEncodedEssentiaPattern extends AbstractItemEncodedPattern {
+public abstract class ItemEncodedEssentiaPattern extends AbstractItemEncodedPattern {
 
     public ItemEncodedEssentiaPattern(String name) {
         super(name);

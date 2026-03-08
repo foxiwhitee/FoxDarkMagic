@@ -7,6 +7,8 @@ tile.chargedArcaneStone.name=Заряджений магічний камінь
 tile.arcaneEncoder.name=Кодувальник магічного верстаку
 tile.crucibleEncoder.name=Кодувальник тигля
 tile.infusionEncoder.name=Кодувальник інфузії
+tile.crucibleAssembler.name=Асемблер тигля
+tile.infusionAssembler.name=Асемблер інфузії
 
 # Items
 item.stackUpgrade.name=Магічне покращення: Стак
@@ -20,6 +22,7 @@ aeparts.essentia.FastImportBus.name=ME Швидка шина імпорту ес
 item.encodedArcanePattern.name=Закодований магічний шаблон
 item.encodedCruciblePattern.name=Закодований шаблон тигля
 item.encodedInfusionPattern.name=Закодований шаблон інфузії
+item.abrahamSeal.name=Печать Авраама
 
 # Tooltips
 tooltip.stabilizer.description.1=§7Стабілізує матрицю. Ідеально стабілізує матрицю, якщо є §34 стабілізатори 
@@ -81,3 +84,6 @@ tooltip.research.requisite.item=Сканувати предмет
 tooltip.research.requisite.entity=Сканувати моба
 tooltip.research.requisite.aspect=Сканувати аспект
 tooltip.research.requisite.all=Ви виконали всі необхідні дослідження
+tooltip.abrahamSeal.description.1=§4§l§mНе§r§4§l до§oпо§r§4§lма§mгай§r§4§lте ме§oні§r§4§l... §kНе§r§4§l §mдо§r§4§lп§r§4§lомага§kйте§r§4§l м§mе§r§4§lні... 
+tooltip.abrahamSeal.description.2=§4§lН§kе§r§4§l §oд§r§4§lо§kпома§r§4§lга§mйт§r§4§lе м§kені§r§4§l...
+tooltip.assembler.description=§7Крафтить §3%s§7 крафтів за тік

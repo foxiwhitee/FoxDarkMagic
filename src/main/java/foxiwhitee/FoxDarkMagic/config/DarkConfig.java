@@ -53,4 +53,14 @@ public class DarkConfig {
     @ConfigValue(category = "NEI.Recipes.Infusion", name = "shouldShow", desc = "Is it necessary to show the recipe even if it is not studied?")
     public static boolean shouldShowInfusionRecipes = false;
 
+
+    @ConfigValue(category = "Assemblers.Arcane", name = "speed", desc = "Speed of creating items at a time")
+    public static long assemblerArcaneSpeed = 128;
+
+    @ConfigValue(category = "Assemblers.Crucible", name = "speed", desc = "Speed of creating items at a time")
+    public static long assemblerCrucibleSpeed = 4096;
+
+    @ConfigValue(category = "Assemblers.Infusion", name = "speed", desc = "Speed of creating items at a time")
+    public static long assemblerInfusionSpeed = 2048;
+
 }

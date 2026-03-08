@@ -9,6 +9,8 @@ tile.chargedArcaneStone.name=Charged Arcane Stone
 tile.arcaneEncoder.name=Arcane Worktable Encoder
 tile.crucibleEncoder.name=Crucible Encoder
 tile.infusionEncoder.name=Infusion Encoder
+tile.crucibleAssembler.name=Crucible Assembler
+tile.infusionAssembler.name=Infusion Assembler
 
 # Items
 item.stackUpgrade.name=Magic Upgrade: Stack
@@ -22,6 +24,7 @@ aeparts.essentia.FastImportBus.name=ME Fast Essentia Import Bus
 item.encodedArcanePattern.name=Encoded Arcane Pattern
 item.encodedCruciblePattern.name=Encoded Crucible Pattern
 item.encodedInfusionPattern.name=Encoded Infusion Pattern
+item.abrahamSeal.name=Abraham's Seal
 
 # Tooltips
 tooltip.stabilizer.description.1=§7Stabilizes the matrix. Ideally stabilizes the matrix if there are §34 stabilizers
@@ -83,3 +86,6 @@ tooltip.research.requisite.item=Scan item
 tooltip.research.requisite.entity=Scan entity
 tooltip.research.requisite.aspect=Scan aspect
 tooltip.research.requisite.all=You have done all the required research
+tooltip.abrahamSeal.description.1=§4§lD§oo§r§4§l§mn't§r§4§l §khel§r§4§lp §ome§r§4§l... §kDon'§r§4§lt §ohel§r§4§lp m§ke§r§4§l...
+tooltip.abrahamSeal.description.2=§4§lDo§kn't§r§4§l h§me§r§4§llp §ome§r§4§l...
+tooltip.assembler.description=§7Crafting §3%s§7 crafts per tick

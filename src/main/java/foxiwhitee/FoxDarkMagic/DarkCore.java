@@ -18,7 +18,7 @@ public class DarkCore {
         MODID = "foxdarkmagic",
         MODNAME = "FoxDarkMagic",
         VERSION = "1.0.0",
-        DEPEND = "required-after:Thaumcraft;required-after:foxlib;after:appliedenergistics2;after:thaumicenergistics;";
+        DEPEND = "required-after:Thaumcraft;after:appliedenergistics2;required-after:foxlib;after:thaumicenergistics;";
 
     public static final CreativeTabs TAB = new CreativeTabs("FOX_DARK_MAGIC_TAB") {
         @Override

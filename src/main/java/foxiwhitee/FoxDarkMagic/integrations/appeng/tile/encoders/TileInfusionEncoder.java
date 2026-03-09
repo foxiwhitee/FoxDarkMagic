@@ -2,7 +2,7 @@ package foxiwhitee.FoxDarkMagic.integrations.appeng.tile.encoders;
 
 import appeng.tile.TileEvent;
 import appeng.tile.events.TileEventType;
-import com.djgiannuzz.thaumcraftneiplugin.items.ItemAspect;
+import com.gtnewhorizons.aspectrecipeindex.common.items.ItemAspect;
 import foxiwhitee.FoxDarkMagic.helpers.RecipesHelper;
 import foxiwhitee.FoxDarkMagic.integrations.appeng.AE2Integration;
 import net.minecraft.entity.player.EntityPlayer;

@@ -9,10 +9,12 @@ dependencies {
     implementation ('com.github.GTNewHorizons:ModTweaker:0.12.0:dev') {transitive = false}
     implementation ('com.github.GTNewHorizons:MouseTweaks:2.4.20-GTNH:dev') {transitive = false}
     implementation ('com.github.GTNewHorizons:NotEnoughItems:2.8.53-GTNH-pre:dev') {transitive = false}
-    implementation ('com.github.GTNewHorizons:ThaumicEnergistics:1.7.31-GTNH:dev') {transitive = false}
+    implementation ('com.github.GTNewHorizons:ThaumicEnergistics:1.7.33-GTNH:dev') {transitive = false}
     implementation ('net.industrial-craft:industrialcraft-2:2.2.828-experimental:dev') {transitive = false}
     implementation ('com.github.GTNewHorizons:Salis-Arcana:1.1.47-GTNH:dev') {transitive = false}
     implementation ('net.glease:tc4tweaks:1.5.43:dev') {transitive = false}
+    implementation ('net.glease:tc4recipelib:1.5.39') {transitive = false}
+    implementation ('com.github.GTNewHorizons:AspectRecipeIndex:1.0.2') {transitive = false}
 
     implementation(rfg.deobf(project.fileTree(dir: 'libs', includes: ['*'])))
     //implementation(project.fileTree(dir: 'libs', includes: ['*']))

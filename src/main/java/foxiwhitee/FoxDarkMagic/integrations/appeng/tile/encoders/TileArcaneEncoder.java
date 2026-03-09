@@ -12,6 +12,8 @@ import thaumcraft.api.ThaumcraftApi;
 import thaumcraft.api.aspects.AspectList;
 import thaumcraft.api.crafting.ShapedArcaneRecipe;
 import thaumcraft.api.crafting.ShapelessArcaneRecipe;
+import thaumcraft.common.lib.crafting.ArcaneSceptreRecipe;
+import thaumcraft.common.lib.crafting.ArcaneWandRecipe;
 
 import java.util.List;
 
@@ -50,6 +52,20 @@ public class TileArcaneEncoder extends TileUniversalPatternEncoder {
                 if (RecipesHelper.matchesArcaneShaped(getCraftingInventory(), shaped)) {
                     getOutputInventory().setInventorySlotContents(0, shaped.getRecipeOutput().copy());
                     aspectList.add(shaped.getAspects());
+                    return;
+                }
+            } else if (obj instanceof ArcaneSceptreRecipe) {
+                var entry = RecipesHelper.matchesSceptre(getCraftingInventory());
+                if (entry != null) {
+                    getOutputInventory().setInventorySlotContents(0, entry.getKey().copy());
+                    aspectList.add(entry.getValue());
+                    return;
+                }
+            } else if (obj instanceof ArcaneWandRecipe) {
+                var entry = RecipesHelper.matchesWand(getCraftingInventory());
+                if (entry != null) {
+                    getOutputInventory().setInventorySlotContents(0, entry.getKey().copy());
+                    aspectList.add(entry.getValue());
                     return;
                 }
             }

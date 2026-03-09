@@ -9,19 +9,24 @@ import cpw.mods.fml.relauncher.SideOnly;
 import foxiwhitee.FoxDarkMagic.config.ContentConfig;
 import foxiwhitee.FoxDarkMagic.integrations.IIntegration;
 import foxiwhitee.FoxDarkMagic.integrations.Integration;
-import foxiwhitee.FoxDarkMagic.integrations.appeng.blocks.assemblers.BlockCrucibleAssembler;
-import foxiwhitee.FoxDarkMagic.integrations.appeng.blocks.assemblers.BlockInfusionAssembler;
+import foxiwhitee.FoxDarkMagic.integrations.appeng.blocks.assemblers.*;
+import foxiwhitee.FoxDarkMagic.integrations.appeng.blocks.assemblers.arcane.BlockAdvancedArcaneAssembler;
+import foxiwhitee.FoxDarkMagic.integrations.appeng.blocks.assemblers.arcane.BlockBasicArcaneAssembler;
+import foxiwhitee.FoxDarkMagic.integrations.appeng.blocks.assemblers.arcane.BlockHybridArcaneAssembler;
+import foxiwhitee.FoxDarkMagic.integrations.appeng.blocks.assemblers.arcane.BlockUltimateArcaneAssembler;
 import foxiwhitee.FoxDarkMagic.integrations.appeng.blocks.encoders.BlockArcaneEncoder;
 import foxiwhitee.FoxDarkMagic.integrations.appeng.blocks.encoders.BlockCrucibleEncoder;
 import foxiwhitee.FoxDarkMagic.integrations.appeng.blocks.encoders.BlockInfusionEncoder;
 import foxiwhitee.FoxDarkMagic.integrations.appeng.client.render.RenderCrucibleAssembler;
 import foxiwhitee.FoxDarkMagic.integrations.appeng.client.render.RenderInfusionAssembler;
+import foxiwhitee.FoxDarkMagic.integrations.appeng.container.assemblers.ContainerArcaneAssembler;
 import foxiwhitee.FoxDarkMagic.integrations.appeng.container.assemblers.ContainerEssetiaAssembler;
 import foxiwhitee.FoxDarkMagic.integrations.appeng.container.encoders.ContainerArcaneEncoder;
 import foxiwhitee.FoxDarkMagic.integrations.appeng.container.encoders.ContainerCrucibleEncoder;
 import foxiwhitee.FoxDarkMagic.integrations.appeng.container.encoders.ContainerInfusionEncoder;
 import foxiwhitee.FoxDarkMagic.integrations.appeng.item.ItemAEPart;
 import foxiwhitee.FoxDarkMagic.integrations.appeng.item.ItemAbrahamSeal;
+import foxiwhitee.FoxDarkMagic.integrations.appeng.item.block.ItemBlockArcaneAssembler;
 import foxiwhitee.FoxDarkMagic.integrations.appeng.item.block.ItemBlockAssembler;
 import foxiwhitee.FoxDarkMagic.integrations.appeng.item.patterns.ItemEncodedArcanePattern;
 import foxiwhitee.FoxDarkMagic.integrations.appeng.item.patterns.ItemEncodedCruciblePattern;
@@ -29,6 +34,10 @@ import foxiwhitee.FoxDarkMagic.integrations.appeng.item.patterns.ItemEncodedInfu
 import foxiwhitee.FoxDarkMagic.integrations.appeng.network.packets.server.*;
 import foxiwhitee.FoxDarkMagic.integrations.appeng.tile.assemblers.TileCrucibleAssembler;
 import foxiwhitee.FoxDarkMagic.integrations.appeng.tile.assemblers.TileInfusionAssembler;
+import foxiwhitee.FoxDarkMagic.integrations.appeng.tile.assemblers.arcane.TileAdvancedArcaneAssembler;
+import foxiwhitee.FoxDarkMagic.integrations.appeng.tile.assemblers.arcane.TileBasicArcaneAssembler;
+import foxiwhitee.FoxDarkMagic.integrations.appeng.tile.assemblers.arcane.TileHybridArcaneAssembler;
+import foxiwhitee.FoxDarkMagic.integrations.appeng.tile.assemblers.arcane.TileUltimateArcaneAssembler;
 import foxiwhitee.FoxDarkMagic.integrations.appeng.tile.encoders.TileArcaneEncoder;
 import foxiwhitee.FoxDarkMagic.integrations.appeng.tile.encoders.TileCrucibleEncoder;
 import foxiwhitee.FoxDarkMagic.integrations.appeng.tile.encoders.TileInfusionEncoder;
@@ -58,6 +67,11 @@ public class AE2Integration implements IIntegration {
     public static final Block crucibleAssembler = new BlockCrucibleAssembler("crucibleAssembler");
     public static final Block infusionAssembler = new BlockInfusionAssembler("infusionAssembler");
 
+    public static final Block basicArcaneAssembler = new BlockBasicArcaneAssembler("basicArcaneAssembler");
+    public static final Block advancedArcaneAssembler = new BlockAdvancedArcaneAssembler("advancedArcaneAssembler");
+    public static final Block hybridArcaneAssembler = new BlockHybridArcaneAssembler("hybridArcaneAssembler");
+    public static final Block ultimateArcaneAssembler = new BlockUltimateArcaneAssembler("ultimateArcaneAssembler");
+
     @Override
     public void preInit(FMLPreInitializationEvent paramFMLPreInitializationEvent) {
         if (ContentConfig.enableAbrahamSeal) {
@@ -67,6 +81,22 @@ public class AE2Integration implements IIntegration {
             RegisterUtils.registerItem(encodedArcanePattern);
             RegisterUtils.registerBlocks(arcaneEncoder);
             RegisterUtils.registerTile(TileArcaneEncoder.class);
+            if (ContentConfig.enableBasicArcaneMolecularAssembler) {
+                RegisterUtils.registerBlock(basicArcaneAssembler, ItemBlockArcaneAssembler.class);
+                RegisterUtils.registerTile(TileBasicArcaneAssembler.class);
+            }
+            if (ContentConfig.enableAdvancedArcaneMolecularAssembler) {
+                RegisterUtils.registerBlock(advancedArcaneAssembler, ItemBlockArcaneAssembler.class);
+                RegisterUtils.registerTile(TileAdvancedArcaneAssembler.class);
+            }
+            if (ContentConfig.enableHybridArcaneMolecularAssembler) {
+                RegisterUtils.registerBlock(hybridArcaneAssembler, ItemBlockArcaneAssembler.class);
+                RegisterUtils.registerTile(TileHybridArcaneAssembler.class);
+            }
+            if (ContentConfig.enableUltimateArcaneMolecularAssembler) {
+                RegisterUtils.registerBlock(ultimateArcaneAssembler, ItemBlockArcaneAssembler.class);
+                RegisterUtils.registerTile(TileUltimateArcaneAssembler.class);
+            }
         }
         if (ContentConfig.enableCrucibleMolecularAssembler) {
             RegisterUtils.registerItem(encodedCruciblePattern);
@@ -94,7 +124,11 @@ public class AE2Integration implements IIntegration {
                 .register(BlockCrucibleEncoder.class, TileCrucibleEncoder.class, ContainerCrucibleEncoder.class)
                 .register(BlockInfusionEncoder.class, TileInfusionEncoder.class, ContainerInfusionEncoder.class)
                 .register(BlockCrucibleAssembler.class, TileCrucibleAssembler.class, ContainerEssetiaAssembler.class, "GuiCrucibleAssembler")
-                .register(BlockInfusionAssembler.class, TileInfusionAssembler.class, ContainerEssetiaAssembler.class, "GuiInfusionAssembler");
+                .register(BlockInfusionAssembler.class, TileInfusionAssembler.class, ContainerEssetiaAssembler.class, "GuiInfusionAssembler")
+                .register(BlockBasicArcaneAssembler.class, TileBasicArcaneAssembler.class, ContainerArcaneAssembler.class)
+                .register(BlockAdvancedArcaneAssembler.class, TileAdvancedArcaneAssembler.class, ContainerArcaneAssembler.class)
+                .register(BlockHybridArcaneAssembler.class, TileHybridArcaneAssembler.class, ContainerArcaneAssembler.class)
+                .register(BlockUltimateArcaneAssembler.class, TileUltimateArcaneAssembler .class, ContainerArcaneAssembler.class);
         Objects.requireNonNull(ThEApi.instance()).transportPermissions().addAspectStorageTileToExtractPermissions(TileSingularAlchemicalFurnace.class);
 
         var pr = FoxLibApi.instance.registries().registerPacket();

@@ -3,11 +3,13 @@ package foxiwhitee.FoxDarkMagic.integrations.appeng.utils;
 import foxiwhitee.FoxDarkMagic.integrations.appeng.item.ItemAbrahamSeal;
 import foxiwhitee.FoxLib.container.slots.SlotFiltered;
 import net.minecraft.item.ItemStack;
+import thaumcraft.common.items.wands.ItemWandCasting;
 
 import java.util.function.Predicate;
 
 public enum FiltersAE2 {
-    ABRAHAM_SEAL("abrahamSeal", stack -> itemInstanceof(stack, ItemAbrahamSeal.class));
+    ABRAHAM_SEAL("abrahamSeal", stack -> itemInstanceof(stack, ItemAbrahamSeal.class)),
+    WAND("wand", stack -> itemInstanceof(stack, ItemWandCasting.class));
 
     private final String filter;
     FiltersAE2(String id, Predicate<ItemStack> filter) {

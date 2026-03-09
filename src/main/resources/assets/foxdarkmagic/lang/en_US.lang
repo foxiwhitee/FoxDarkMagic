@@ -11,6 +11,10 @@ tile.crucibleEncoder.name=Crucible Encoder
 tile.infusionEncoder.name=Infusion Encoder
 tile.crucibleAssembler.name=Crucible Assembler
 tile.infusionAssembler.name=Infusion Assembler
+tile.basicArcaneAssembler.name=Basic Arcane Assembler
+tile.advancedArcaneAssembler.name=Advanced Arcane Assembler
+tile.hybridArcaneAssembler.name=Hybrid Arcane Assembler
+tile.ultimateArcaneAssembler.name=Ultimate Arcane Assembler
 
 # Items
 item.stackUpgrade.name=Magic Upgrade: Stack
@@ -89,3 +93,7 @@ tooltip.research.requisite.all=You have done all the required research
 tooltip.abrahamSeal.description.1=§4§lD§oo§r§4§l§mn't§r§4§l §khel§r§4§lp §ome§r§4§l... §kDon'§r§4§lt §ohel§r§4§lp m§ke§r§4§l...
 tooltip.abrahamSeal.description.2=§4§lDo§kn't§r§4§l h§me§r§4§llp §ome§r§4§l...
 tooltip.assembler.description=§7Crafting §3%s§7 crafts per tick
+tooltip.assembler.visStorage=§7Stores §3%s§7 of all types of vis
+tooltip.assembler.shift=§8Hold Shift to see vis in the block
+tooltip.assembler.vis=Has vis:
+tooltip.assembler.discount=§3%s%%§7 avg vis cost

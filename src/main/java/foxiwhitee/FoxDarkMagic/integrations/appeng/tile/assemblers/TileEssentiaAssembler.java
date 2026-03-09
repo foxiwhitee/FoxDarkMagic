@@ -10,7 +10,6 @@ import appeng.tile.events.TileEventType;
 import appeng.tile.inventory.AppEngInternalInventory;
 import appeng.tile.inventory.InvOperation;
 import foxiwhitee.FoxDarkMagic.integrations.appeng.api.IEssentiaPatternHelper;
-import foxiwhitee.FoxDarkMagic.integrations.appeng.helpers.EssentiaPatternHelper;
 import net.minecraft.inventory.IInventory;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
@@ -38,7 +37,7 @@ public abstract class TileEssentiaAssembler extends TileAssembler {
 
     @Override
     protected boolean isValidCraft(ICraftingPatternDetails pattern) {
-        if (pattern instanceof EssentiaPatternHelper) {
+        if (pattern instanceof IEssentiaPatternHelper) {
             return getPattenClass().isAssignableFrom(Objects.requireNonNull(pattern.getPattern().getItem()).getClass());
         }
         return false;

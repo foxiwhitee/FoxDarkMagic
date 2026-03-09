@@ -44,7 +44,7 @@ import java.util.*;
 
 @SuppressWarnings("unused")
 public abstract class TilePatternMachine extends TileAENetworkInvOrientable implements ICraftingMachine, ICraftingProvider, IGridTickable, IInterfaceViewable, IPreCraftingMedium {
-    protected final AppEngInternalInventory patterns = new AppEngInternalInventory(this, 36, 1);
+    protected AppEngInternalInventory patterns = new AppEngInternalInventory(this, 36, 1);
     protected List<ICraftingPatternDetails> patternList;
     protected ICraftingPatternDetails activePattern;
     protected long craftCount;
@@ -233,14 +233,15 @@ public abstract class TilePatternMachine extends TileAENetworkInvOrientable impl
         }
         CrafterHelper.trySendItems(getProxy(), source, needSend);
         if (needSend.isEmpty()) {
+            if (activePattern != null) {
+                afterCrafting();
+            }
             activePattern = null;
-            craftCount = 0;
         }
         return TickRateModulation.IDLE;
     }
 
     protected void afterCrafting() {
-        this.activePattern = null;
         this.craftCount = 0;
         this.craftingGrid = null;
     }

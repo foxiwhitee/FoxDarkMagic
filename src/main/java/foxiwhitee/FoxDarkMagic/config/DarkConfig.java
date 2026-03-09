@@ -54,8 +54,45 @@ public class DarkConfig {
     public static boolean shouldShowInfusionRecipes = false;
 
 
-    @ConfigValue(category = "Assemblers.Arcane", name = "speed", desc = "Speed of creating items at a time")
-    public static long assemblerArcaneSpeed = 128;
+    @ConfigValue(category = "Assemblers.Arcane.Basic", name = "speed", desc = "Speed of creating items at a time")
+    public static long assemblerArcaneBasicSpeed = 128;
+
+    @ConfigValue(category = "Assemblers.Arcane.Basic", name = "storage", max = "21474836", desc = "How many of each aspect does the block hold?")
+    public static int assemblerArcaneBasicStorage = 150;
+
+    @ConfigValue(category = "Assemblers.Arcane.Basic", name = "discount", min = "0", max = "100", desc = "Number of % of axes that will be used according to the standard")
+    public static int assemblerArcaneBasicDiscount = 75;
+
+
+    @ConfigValue(category = "Assemblers.Arcane.Advanced", name = "speed", desc = "Speed of creating items at a time")
+    public static long assemblerArcaneAdvancedSpeed = 512;
+
+    @ConfigValue(category = "Assemblers.Arcane.Advanced", name = "storage", max = "21474836", desc = "How many of each aspect does the block hold?")
+    public static int assemblerArcaneAdvancedStorage = 960;
+
+    @ConfigValue(category = "Assemblers.Arcane.Advanced", name = "discount", min = "0", max = "100", desc = "Number of % of axes that will be used according to the standard")
+    public static int assemblerArcaneAdvancedDiscount = 70;
+
+
+    @ConfigValue(category = "Assemblers.Arcane.Hybrid", name = "speed", desc = "Speed of creating items at a time")
+    public static long assemblerArcaneHybridSpeed = 2048;
+
+    @ConfigValue(category = "Assemblers.Arcane.Hybrid", name = "storage", max = "21474836", desc = "How many of each aspect does the block hold?")
+    public static int assemblerArcaneHybridStorage = 2048;
+
+    @ConfigValue(category = "Assemblers.Arcane.Hybrid", name = "discount", min = "0", max = "100", desc = "Number of % of axes that will be used according to the standard")
+    public static int assemblerArcaneHybridDiscount = 65;
+
+
+    @ConfigValue(category = "Assemblers.Arcane.Ultimate", name = "speed", desc = "Speed of creating items at a time")
+    public static long assemblerArcaneUltimateSpeed = 32768;
+
+    @ConfigValue(category = "Assemblers.Arcane.Ultimate", name = "storage", max = "21474836", desc = "How many of each aspect does the block hold?")
+    public static int assemblerArcaneUltimateStorage = 16384;
+
+    @ConfigValue(category = "Assemblers.Arcane.Ultimate", name = "discount", min = "0", max = "100", desc = "Number of % of axes that will be used according to the standard")
+    public static int assemblerArcaneUltimateDiscount = 60;
+
 
     @ConfigValue(category = "Assemblers.Crucible", name = "speed", desc = "Speed of creating items at a time")
     public static long assemblerCrucibleSpeed = 4096;

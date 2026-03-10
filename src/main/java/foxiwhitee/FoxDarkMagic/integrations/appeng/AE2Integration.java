@@ -17,8 +17,7 @@ import foxiwhitee.FoxDarkMagic.integrations.appeng.blocks.assemblers.arcane.Bloc
 import foxiwhitee.FoxDarkMagic.integrations.appeng.blocks.encoders.BlockArcaneEncoder;
 import foxiwhitee.FoxDarkMagic.integrations.appeng.blocks.encoders.BlockCrucibleEncoder;
 import foxiwhitee.FoxDarkMagic.integrations.appeng.blocks.encoders.BlockInfusionEncoder;
-import foxiwhitee.FoxDarkMagic.integrations.appeng.client.render.RenderCrucibleAssembler;
-import foxiwhitee.FoxDarkMagic.integrations.appeng.client.render.RenderInfusionAssembler;
+import foxiwhitee.FoxDarkMagic.integrations.appeng.client.render.*;
 import foxiwhitee.FoxDarkMagic.integrations.appeng.container.assemblers.ContainerArcaneAssembler;
 import foxiwhitee.FoxDarkMagic.integrations.appeng.container.assemblers.ContainerEssetiaAssembler;
 import foxiwhitee.FoxDarkMagic.integrations.appeng.container.encoders.ContainerArcaneEncoder;
@@ -148,6 +147,22 @@ public class AE2Integration implements IIntegration {
         if (ContentConfig.enableCrucibleMolecularAssembler) {
             MinecraftForgeClient.registerItemRenderer(Item.getItemFromBlock(crucibleAssembler), new RenderCrucibleAssembler());
             ClientRegistry.bindTileEntitySpecialRenderer(TileCrucibleAssembler.class, new RenderCrucibleAssembler());
+        }
+        if (ContentConfig.enableBasicArcaneMolecularAssembler) {
+            MinecraftForgeClient.registerItemRenderer(Item.getItemFromBlock(basicArcaneAssembler), new RenderBasicArcaneAssembler());
+            ClientRegistry.bindTileEntitySpecialRenderer(TileBasicArcaneAssembler.class, new RenderBasicArcaneAssembler());
+        }
+        if (ContentConfig.enableAdvancedArcaneMolecularAssembler) {
+            MinecraftForgeClient.registerItemRenderer(Item.getItemFromBlock(advancedArcaneAssembler), new RenderAdvancedArcaneAssembler());
+            ClientRegistry.bindTileEntitySpecialRenderer(TileAdvancedArcaneAssembler.class, new RenderAdvancedArcaneAssembler());
+        }
+        if (ContentConfig.enableHybridArcaneMolecularAssembler) {
+            MinecraftForgeClient.registerItemRenderer(Item.getItemFromBlock(hybridArcaneAssembler), new RenderHybridArcaneAssembler());
+            ClientRegistry.bindTileEntitySpecialRenderer(TileHybridArcaneAssembler.class, new RenderHybridArcaneAssembler());
+        }
+        if (ContentConfig.enableUltimateArcaneMolecularAssembler) {
+            MinecraftForgeClient.registerItemRenderer(Item.getItemFromBlock(ultimateArcaneAssembler), new RenderUltimateArcaneAssembler());
+            ClientRegistry.bindTileEntitySpecialRenderer(TileUltimateArcaneAssembler.class, new RenderUltimateArcaneAssembler());
         }
     }
 

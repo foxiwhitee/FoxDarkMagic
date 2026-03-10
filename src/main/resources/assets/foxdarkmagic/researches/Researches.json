@@ -11,7 +11,17 @@
     "<foxdarkmagic:holyBook>": ["praecantatio:256", "instrumentum:128", "victus:128"],
     "<foxdarkmagic:saturatedKnowledgeFragment>": ["praecantatio:26", "cognitio:26"],
     "<foxdarkmagic:foxdarkmagic.aeparts>": ["metallum:8", "motus:8", "aqua:4", "perditio:3", "potentia:3", "ordo:3"],
-    "<foxdarkmagic:foxdarkmagic.aeparts.1>": ["metallum:8", "motus:8", "aqua:4", "ordo:4", "potentia:3", "vitreus:1"]
+    "<foxdarkmagic:foxdarkmagic.aeparts.1>": ["metallum:8", "motus:8", "aqua:4", "ordo:4", "potentia:3", "vitreus:1"],
+    "<foxdarkmagic:infusionAssembler>": ["permutatio:32", "motus:48", "fabrico:64", "moolon:8", "praecantatio:48", "lucrum:32"],
+    "<foxdarkmagic:crucibleAssembler>": ["permutatio:32", "motus:48", "fabrico:64", "moolon:8", "praecantatio:48", "lucrum:32"],
+    "<foxdarkmagic:hybridArcaneAssembler>": ["permutatio:32", "motus:48", "fabrico:64", "moolon:8", "praecantatio:48", "lucrum:32"],
+    "<foxdarkmagic:basicArcaneAssembler>": ["permutatio:32", "motus:48", "fabrico:64", "moolon:8", "praecantatio:48", "lucrum:32"],
+    "<foxdarkmagic:ultimateArcaneAssembler>": ["permutatio:32", "motus:48", "fabrico:64", "moolon:8", "praecantatio:48", "lucrum:32"],
+    "<foxdarkmagic:advancedArcaneAssembler>": ["permutatio:32", "motus:48", "fabrico:64", "moolon:8", "praecantatio:48", "lucrum:32"],
+    "<foxdarkmagic:abrahamSeal>": ["vitium:512", "auram:512", "spiritus:512", "moolon:512", "praecantatio:512", "vacuos:512"],
+    "<foxdarkmagic:arcaneEncoder>": ["lucrum:32", "cognitio:32", "metallum:32", "machina:32"],
+    "<foxdarkmagic:crucibleEncoder>": ["lucrum:32", "cognitio:32", "metallum:32", "machina:32"],
+    "<foxdarkmagic:infusionEncoder>": ["lucrum:32", "cognitio:32", "metallum:32", "machina:32"]
   },
   "categories": {
     "FOX_DARK_MAGIC": {
@@ -26,7 +36,7 @@
       "x": 4,
       "y": 4,
       "complex": 3,
-      "aspects": ["cognitio:1", "praecantatio:1", "aer:1", "terra:1", "ignis:1", "aqua:1", "ordo:1", "perditio:1", "moolon:1"],
+      "aspects": ["cognitio:24", "praecantatio:24", "aer:24", "terra:24", "ignis:24", "aqua:24", "ordo:24", "perditio:24", "moolon:24"],
       "text": ["tc.skf.page.text1"]
     },
     "HOLY_BOOK": {
@@ -35,7 +45,7 @@
       "x": 5,
       "y": 3,
       "complex": 3,
-      "aspects": ["victus:1", "fames:1", "lux:1", "terminus:1", "moolon:1"],
+      "aspects": ["victus:24", "fames:24", "lux:24", "terminus:24", "moolon:24"],
       "text": ["tc.hb.page.text1"],
       "parents": ["SATURATED_KNOWLEDGE_FRAGMENT"]
     },
@@ -45,7 +55,7 @@
       "x": 6,
       "y": 2,
       "complex": 3,
-      "aspects": ["cognitio:1", "praecantatio:1", "fames:1", "terminus:1", "moolon:1"],
+      "aspects": ["cognitio:24", "praecantatio:24", "fames:24", "terminus:24", "moolon:24"],
       "text": ["tc.kb.page.text1"],
       "parents": ["HOLY_BOOK"]
     },
@@ -55,7 +65,7 @@
       "x": 3,
       "y": 5,
       "complex": 1,
-      "aspects": ["terra:1", "praecantatio:1", "ignis:1"]
+      "aspects": ["terra:24", "praecantatio:24", "ignis:24"]
     },
     "SINGULAR_ACHEMICAL_FURNACE": {
       "icon": "<foxdarkmagic:singularAlchemicalFurnace>",
@@ -63,7 +73,7 @@
       "x": 3,
       "y": 2,
       "complex": 3,
-      "aspects": ["praecantatio:1", "permutatio:1", "ignis:1", "machina:1", "moolon:1"],
+      "aspects": ["praecantatio:24", "permutatio:24", "ignis:24", "machina:24", "moolon:24"],
       "text": ["tc.saf.page.text1"],
       "parents": ["ADVALCHEMYFURNACE", "MATRIX_STABILIZER"]
     },
@@ -73,7 +83,7 @@
       "x": 2,
       "y": 3,
       "complex": 2,
-      "aspects": ["praecantatio:1", "vacuos:1", "moolon:1"],
+      "aspects": ["praecantatio:24", "vacuos:24", "moolon:24"],
       "text": ["tc.muias.page.text1"],
       "parents": ["SINGULAR_ACHEMICAL_FURNACE"]
     },
@@ -83,7 +93,7 @@
       "x": 4,
       "y": 1,
       "complex": 2,
-      "aspects": ["praecantatio:1", "motus:1", "moolon:1"],
+      "aspects": ["praecantatio:24", "motus:24", "moolon:24"],
       "text": ["tc.mus.page.text1"],
       "parents": ["SINGULAR_ACHEMICAL_FURNACE"]
     },
@@ -93,7 +103,7 @@
       "x": 5,
       "y": 0,
       "complex": 3,
-      "aspects": ["praecantatio:1", "aer:1", "terra:1", "ignis:1", "aqua:1", "ordo:1", "perditio:1", "moolon:1"],
+      "aspects": ["praecantatio:24", "aer:24", "terra:24", "ignis:24", "aqua:24", "ordo:24", "perditio:24", "moolon:24"],
       "text": ["tc.ms.page.text1"]
     },
     "MATTER_DISTORTER": {
@@ -102,9 +112,69 @@
       "x": 1,
       "y": 4,
       "complex": 3,
-      "aspects": ["praecantatio:1", "alienis:1", "vitium:1", "permutatio:1", "moolon:1"],
+      "aspects": ["praecantatio:24", "alienis:24", "vitium:24", "permutatio:24", "moolon:24"],
       "text": ["tc.md.page.text1"],
       "parents": ["CHARGED_ARCANE_STONE"]
+    },
+    "ABRAHAM_SEAL": {
+      "icon": "<foxdarkmagic:abrahamSeal>",
+      "category": "FOX_DARK_MAGIC",
+      "x": 3,
+      "y": 8,
+      "complex": 3,
+      "aspects": ["vitium:512", "auram:512", "spiritus:512", "moolon:512", "praecantatio:512", "vacuos:512"],
+      "text": ["tc.as.page.text1"]
+    },
+    "INFUSION_ASSEMBLER": {
+      "icon": "<foxdarkmagic:infusionAssembler>",
+      "category": "FOX_DARK_MAGIC",
+      "x": 4,
+      "y": 7,
+      "complex": 3,
+      "aspects": ["permutatio:128", "motus:128", "fabrico:128", "moolon:128", "praecantatio:128", "lucrum:128"]
+    },
+    "CRUCIBLE_ASSEMBLER": {
+      "icon": "<foxdarkmagic:crucibleAssembler>",
+      "category": "FOX_DARK_MAGIC",
+      "x": 5,
+      "y": 6,
+      "complex": 3,
+      "aspects": ["permutatio:128", "motus:128", "fabrico:128", "moolon:128", "praecantatio:128", "lucrum:128"]
+    },
+    "BASIC_ARCANE_ASSEMBLER": {
+      "icon": "<foxdarkmagic:basicArcaneAssembler>",
+      "category": "FOX_DARK_MAGIC",
+      "x": 6,
+      "y": 5,
+      "complex": 3,
+      "aspects": ["permutatio:128", "motus:128", "fabrico:128", "moolon:128", "praecantatio:128", "lucrum:128"]
+    },
+    "ADVANCED_ARCANE_ASSEMBLER": {
+      "icon": "<foxdarkmagic:advancedArcaneAssembler>",
+      "category": "FOX_DARK_MAGIC",
+      "x": 7,
+      "y": 4,
+      "complex": 3,
+      "aspects": ["permutatio:128", "motus:128", "fabrico:128", "moolon:128", "praecantatio:128", "lucrum:128"],
+      "parents": ["BASIC_ARCANE_ASSEMBLER"]
+    },
+    "HYBRID_ARCANE_ASSEMBLER": {
+      "icon": "<foxdarkmagic:hybridArcaneAssembler>",
+      "category": "FOX_DARK_MAGIC",
+      "x": 8,
+      "y": 3,
+      "complex": 3,
+      "aspects": ["permutatio:128", "motus:128", "fabrico:128", "moolon:128", "praecantatio:128", "lucrum:128"],
+      "parents": ["ADVANCED_ARCANE_ASSEMBLER"]
+    },
+    "ULTIMATE_ARCANE_ASSEMBLER": {
+      "icon": "<foxdarkmagic:ultimateArcaneAssembler>",
+      "category": "FOX_DARK_MAGIC",
+      "x": 9,
+      "y": 2,
+      "complex": 3,
+      "aspects": ["permutatio:128", "motus:128", "fabrico:128", "moolon:128", "praecantatio:128", "lucrum:128"],
+      "parents": ["HYBRID_ARCANE_ASSEMBLER"]
     }
   }
 }

@@ -105,6 +105,109 @@
       "inputs": ["<Thaumcraft:ItemResource.11>", "<Thaumcraft:ItemResource.12>", "<Thaumcraft:blockCosmeticSolid.4>", "<Thaumcraft:blockCosmeticSolid>",
         "<Thaumcraft:blockCosmeticSolid.4>", "<Thaumcraft:ItemResource.12>", "<Thaumcraft:ItemResource.11>"],
       "aspects": ["praecantatio:128", "alienis:128", "vitium:128", "permutatio:128", "moolon:128"]
+    },
+    {
+      "type": "infusion",
+      "instability": 1000,
+      "research": "ABRAHAM_SEAL",
+      "output": "<foxdarkmagic:abrahamSeal>",
+      "catalyst": "<Thaumcraft:blockMirror>",
+      "inputs": ["<Thaumcraft:ItemResource.11>", "<Thaumcraft:ItemResource.12>", "<Thaumcraft:FocusPrimal>",
+        "<Thaumcraft:FocusFire>", "<Thaumcraft:FocusFrost>", "<Thaumcraft:FocusPech>",
+        "<Thaumcraft:FocusPortableHole>", "<Thaumcraft:ItemEldritchObject.3>", "<Thaumcraft:FocusExcavation>",
+        "<Thaumcraft:FocusTrade>", "<Thaumcraft:FocusHellbat>", "<Thaumcraft:FocusShock>",
+        "<Thaumcraft:FocusWarding>", "<Thaumcraft:ItemResource.12>"],
+      "aspects": ["vitium:512000", "auram:512000", "spiritus:512000", "moolon:512000", "praecantatio:512000", "vacuos:512000"]
+    },
+    {
+      "type": "arcaneCraftingShaped",
+      "output": "<foxdarkmagic:infusionEncoder>",
+      "research": "INFUSION_ASSEMBLER",
+      "vis": ["aer:150", "terra:150", "ignis:150", "aqua:150", "ordo:150", "perditio:150"],
+      "inputs": [
+        "<appliedenergistics2:item.ItemMultiMaterial.1>", "<appliedenergistics2:item.ItemMultiPart.340>", "<appliedenergistics2:item.ItemMultiMaterial.1>",
+        "<appliedenergistics2:item.ItemMultiMaterial.9>", "<Thaumcraft:blockStoneDevice.2>", "<appliedenergistics2:item.ItemMultiMaterial.9>",
+        "<Thaumcraft:blockCosmeticSolid.4>", "<Thaumcraft:blockCosmeticOpaque.1>", "<Thaumcraft:blockCosmeticSolid.4>"]
+    },
+    {
+      "type": "arcaneCraftingShaped",
+      "output": "<foxdarkmagic:crucibleEncoder>",
+      "research": "CRUCIBLE_ASSEMBLER",
+      "vis": ["aer:150", "terra:150", "ignis:150", "aqua:150", "ordo:150", "perditio:150"],
+      "inputs": [
+        "<appliedenergistics2:item.ItemMultiMaterial.1>", "<appliedenergistics2:item.ItemMultiPart.340>", "<appliedenergistics2:item.ItemMultiMaterial.1>",
+        "<appliedenergistics2:item.ItemMultiMaterial.9>", "<Thaumcraft:blockMetalDevice>", "<appliedenergistics2:item.ItemMultiMaterial.9>",
+        "<Thaumcraft:blockCosmeticSolid.4>", "<Thaumcraft:blockCosmeticOpaque.1>", "<Thaumcraft:blockCosmeticSolid.4>"]
+    },
+    {
+      "type": "arcaneCraftingShaped",
+      "output": "<foxdarkmagic:arcaneEncoder>",
+      "research": "BASIC_ARCANE_ASSEMBLER",
+      "vis": ["aer:150", "terra:150", "ignis:150", "aqua:150", "ordo:150", "perditio:150"],
+      "inputs": [
+        "<appliedenergistics2:item.ItemMultiMaterial.1>", "<appliedenergistics2:item.ItemMultiPart.340>", "<appliedenergistics2:item.ItemMultiMaterial.1>",
+        "<appliedenergistics2:item.ItemMultiMaterial.9>", "<Thaumcraft:blockTable.15>", "<appliedenergistics2:item.ItemMultiMaterial.9>",
+        "<Thaumcraft:blockCosmeticSolid.4>", "<Thaumcraft:blockCosmeticOpaque.1>", "<Thaumcraft:blockCosmeticSolid.4>"]
+    },
+    {
+      "type": "arcaneCraftingShaped",
+      "output": "<foxdarkmagic:infusionAssembler>",
+      "research": "INFUSION_ASSEMBLER",
+      "vis": ["aer:150", "terra:150", "ignis:150", "aqua:150", "ordo:150", "perditio:150"],
+      "inputs": [
+        "<appliedenergistics2:tile.BlockController>", "<appliedenergistics2:tile.BlockMolecularAssembler>", "<appliedenergistics2:tile.BlockController>",
+        "<appliedenergistics2:tile.BlockInterface>", "<Thaumcraft:blockStoneDevice.2>", "<appliedenergistics2:tile.BlockInterface>",
+        "<appliedenergistics2:tile.BlockController>", "<appliedenergistics2:tile.BlockMolecularAssembler>", "<appliedenergistics2:tile.BlockController>"]
+    },
+    {
+      "type": "arcaneCraftingShaped",
+      "output": "<foxdarkmagic:crucibleAssembler>",
+      "research": "CRUCIBLE_ASSEMBLER",
+      "vis": ["aer:150", "terra:150", "ignis:150", "aqua:150", "ordo:150", "perditio:150"],
+      "inputs": [
+        "<appliedenergistics2:tile.BlockController>", "<appliedenergistics2:tile.BlockMolecularAssembler>", "<appliedenergistics2:tile.BlockController>",
+        "<appliedenergistics2:tile.BlockInterface>", "<Thaumcraft:blockMetalDevice>", "<appliedenergistics2:tile.BlockInterface>",
+        "<appliedenergistics2:tile.BlockController>", "<appliedenergistics2:tile.BlockMolecularAssembler>", "<appliedenergistics2:tile.BlockController>"]
+    },
+    {
+      "type": "arcaneCraftingShaped",
+      "output": "<foxdarkmagic:basicArcaneAssembler>",
+      "research": "BASIC_ARCANE_ASSEMBLER",
+      "vis": ["aer:150", "terra:150", "ignis:150", "aqua:150", "ordo:150", "perditio:150"],
+      "inputs": [
+        "<appliedenergistics2:tile.BlockController>", "<appliedenergistics2:tile.BlockMolecularAssembler>", "<appliedenergistics2:tile.BlockController>",
+        "<appliedenergistics2:tile.BlockInterface>", "<Thaumcraft:blockTable.15>", "<appliedenergistics2:tile.BlockInterface>",
+        "<appliedenergistics2:tile.BlockController>", "<appliedenergistics2:tile.BlockMolecularAssembler>", "<appliedenergistics2:tile.BlockController>"]
+    },
+    {
+      "type": "arcaneCraftingShaped",
+      "output": "<foxdarkmagic:advancedArcaneAssembler>",
+      "research": "ADVANCED_ARCANE_ASSEMBLER",
+      "vis": ["aer:150", "terra:150", "ignis:150", "aqua:150", "ordo:150", "perditio:150"],
+      "inputs": [
+        "<appliedenergistics2:tile.BlockController>", "<appliedenergistics2:tile.BlockMolecularAssembler>", "<appliedenergistics2:tile.BlockController>",
+        "<appliedenergistics2:tile.BlockInterface>", "<foxdarkmagic:basicArcaneAssembler>", "<appliedenergistics2:tile.BlockInterface>",
+        "<appliedenergistics2:tile.BlockController>", "<appliedenergistics2:tile.BlockMolecularAssembler>", "<appliedenergistics2:tile.BlockController>"]
+    },
+    {
+      "type": "arcaneCraftingShaped",
+      "output": "<foxdarkmagic:hybridArcaneAssembler>",
+      "research": "HYBRID_ARCANE_ASSEMBLER",
+      "vis": ["aer:150", "terra:150", "ignis:150", "aqua:150", "ordo:150", "perditio:150"],
+      "inputs": [
+        "<appliedenergistics2:tile.BlockController>", "<appliedenergistics2:tile.BlockMolecularAssembler>", "<appliedenergistics2:tile.BlockController>",
+        "<appliedenergistics2:tile.BlockInterface>", "<foxdarkmagic:advancedArcaneAssembler>", "<appliedenergistics2:tile.BlockInterface>",
+        "<appliedenergistics2:tile.BlockController>", "<appliedenergistics2:tile.BlockMolecularAssembler>", "<appliedenergistics2:tile.BlockController>"]
+    },
+    {
+      "type": "arcaneCraftingShaped",
+      "output": "<foxdarkmagic:ultimateArcaneAssembler>",
+      "research": "ULTIMATE_ARCANE_ASSEMBLER",
+      "vis": ["aer:150", "terra:150", "ignis:150", "aqua:150", "ordo:150", "perditio:150"],
+      "inputs": [
+        "<appliedenergistics2:tile.BlockController>", "<appliedenergistics2:tile.BlockMolecularAssembler>", "<appliedenergistics2:tile.BlockController>",
+        "<appliedenergistics2:tile.BlockInterface>", "<foxdarkmagic:hybridArcaneAssembler>", "<appliedenergistics2:tile.BlockInterface>",
+        "<appliedenergistics2:tile.BlockController>", "<appliedenergistics2:tile.BlockMolecularAssembler>", "<appliedenergistics2:tile.BlockController>"]
     }
   ]
 }

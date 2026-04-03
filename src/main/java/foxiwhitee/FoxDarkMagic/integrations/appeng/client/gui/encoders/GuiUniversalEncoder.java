@@ -2,9 +2,9 @@ package foxiwhitee.FoxDarkMagic.integrations.appeng.client.gui.encoders;
 
 import foxiwhitee.FoxDarkMagic.client.gui.DMGui;
 import foxiwhitee.FoxDarkMagic.integrations.appeng.container.encoders.ContainerUniversalEncoder;
-import foxiwhitee.FoxDarkMagic.integrations.appeng.network.packets.server.C2SEncodePacket;
-import foxiwhitee.FoxDarkMagic.integrations.appeng.tile.encoders.TileUniversalPatternEncoder;
 import foxiwhitee.FoxLib.client.gui.buttons.NoTextureButton;
+import foxiwhitee.FoxLib.integration.applied.network.packets.C2SEncodePacket;
+import foxiwhitee.FoxLib.integration.applied.tile.TileUniversalPatternEncoder;
 import foxiwhitee.FoxLib.network.NetworkManager;
 import net.minecraft.client.gui.GuiButton;
 

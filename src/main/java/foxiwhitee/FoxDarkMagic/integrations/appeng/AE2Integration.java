@@ -25,8 +25,6 @@ import foxiwhitee.FoxDarkMagic.integrations.appeng.container.encoders.ContainerC
 import foxiwhitee.FoxDarkMagic.integrations.appeng.container.encoders.ContainerInfusionEncoder;
 import foxiwhitee.FoxDarkMagic.integrations.appeng.item.ItemAEPart;
 import foxiwhitee.FoxDarkMagic.integrations.appeng.item.ItemAbrahamSeal;
-import foxiwhitee.FoxDarkMagic.integrations.appeng.item.block.ItemBlockArcaneAssembler;
-import foxiwhitee.FoxDarkMagic.integrations.appeng.item.block.ItemBlockAssembler;
 import foxiwhitee.FoxDarkMagic.integrations.appeng.item.patterns.ItemEncodedArcanePattern;
 import foxiwhitee.FoxDarkMagic.integrations.appeng.item.patterns.ItemEncodedCruciblePattern;
 import foxiwhitee.FoxDarkMagic.integrations.appeng.item.patterns.ItemEncodedInfusionPattern;
@@ -40,6 +38,7 @@ import foxiwhitee.FoxDarkMagic.integrations.appeng.tile.assemblers.arcane.TileUl
 import foxiwhitee.FoxDarkMagic.integrations.appeng.tile.encoders.TileArcaneEncoder;
 import foxiwhitee.FoxDarkMagic.integrations.appeng.tile.encoders.TileCrucibleEncoder;
 import foxiwhitee.FoxDarkMagic.integrations.appeng.tile.encoders.TileInfusionEncoder;
+import foxiwhitee.FoxDarkMagic.item.AllItemBlock;
 import foxiwhitee.FoxDarkMagic.tile.TileSingularAlchemicalFurnace;
 import foxiwhitee.FoxLib.api.FoxLibApi;
 import foxiwhitee.FoxLib.registries.RegisterUtils;
@@ -81,33 +80,33 @@ public class AE2Integration implements IIntegration {
             RegisterUtils.registerBlocks(arcaneEncoder);
             RegisterUtils.registerTile(TileArcaneEncoder.class);
             if (ContentConfig.enableBasicArcaneMolecularAssembler) {
-                RegisterUtils.registerBlock(basicArcaneAssembler, ItemBlockArcaneAssembler.class);
+                RegisterUtils.registerBlock(basicArcaneAssembler, AllItemBlock.class);
                 RegisterUtils.registerTile(TileBasicArcaneAssembler.class);
             }
             if (ContentConfig.enableAdvancedArcaneMolecularAssembler) {
-                RegisterUtils.registerBlock(advancedArcaneAssembler, ItemBlockArcaneAssembler.class);
+                RegisterUtils.registerBlock(advancedArcaneAssembler, AllItemBlock.class);
                 RegisterUtils.registerTile(TileAdvancedArcaneAssembler.class);
             }
             if (ContentConfig.enableHybridArcaneMolecularAssembler) {
-                RegisterUtils.registerBlock(hybridArcaneAssembler, ItemBlockArcaneAssembler.class);
+                RegisterUtils.registerBlock(hybridArcaneAssembler, AllItemBlock.class);
                 RegisterUtils.registerTile(TileHybridArcaneAssembler.class);
             }
             if (ContentConfig.enableUltimateArcaneMolecularAssembler) {
-                RegisterUtils.registerBlock(ultimateArcaneAssembler, ItemBlockArcaneAssembler.class);
+                RegisterUtils.registerBlock(ultimateArcaneAssembler, AllItemBlock.class);
                 RegisterUtils.registerTile(TileUltimateArcaneAssembler.class);
             }
         }
         if (ContentConfig.enableCrucibleMolecularAssembler) {
             RegisterUtils.registerItem(encodedCruciblePattern);
-            RegisterUtils.registerBlock(crucibleEncoder);
-            RegisterUtils.registerBlock(crucibleAssembler, ItemBlockAssembler.class);
+            RegisterUtils.registerBlock(crucibleEncoder, AllItemBlock.class);
+            RegisterUtils.registerBlock(crucibleAssembler, AllItemBlock.class);
             RegisterUtils.registerTile(TileCrucibleEncoder.class);
             RegisterUtils.registerTile(TileCrucibleAssembler.class);
         }
         if (ContentConfig.enableInfusionMolecularAssembler) {
             RegisterUtils.registerItem(encodedInfusionPattern);
-            RegisterUtils.registerBlock(infusionEncoder);
-            RegisterUtils.registerBlock(infusionAssembler, ItemBlockAssembler.class);
+            RegisterUtils.registerBlock(infusionEncoder, AllItemBlock.class);
+            RegisterUtils.registerBlock(infusionAssembler, AllItemBlock.class);
             RegisterUtils.registerTile(TileInfusionEncoder.class);
             RegisterUtils.registerTile(TileInfusionAssembler.class);
         }
@@ -131,7 +130,6 @@ public class AE2Integration implements IIntegration {
         Objects.requireNonNull(ThEApi.instance()).transportPermissions().addAspectStorageTileToExtractPermissions(TileSingularAlchemicalFurnace.class);
 
         var pr = FoxLibApi.instance.registries().registerPacket();
-        pr.register(C2SEncodePacket.class);
         pr.register(C2SChangePagePacket.class);
         if (isClient()) {
             clientInit();

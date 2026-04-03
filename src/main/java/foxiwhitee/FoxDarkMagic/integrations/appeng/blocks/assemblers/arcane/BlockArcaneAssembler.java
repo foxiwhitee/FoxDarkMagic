@@ -3,19 +3,52 @@ package foxiwhitee.FoxDarkMagic.integrations.appeng.blocks.assemblers.arcane;
 import appeng.api.implementations.items.IMemoryCard;
 import foxiwhitee.FoxDarkMagic.integrations.appeng.blocks.assemblers.BlockAssembler;
 import foxiwhitee.FoxDarkMagic.integrations.appeng.tile.assemblers.arcane.TileArcaneAssembler;
+import foxiwhitee.FoxLib.utils.helpers.LocalizationUtils;
+import net.minecraft.client.gui.GuiScreen;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.tileentity.TileEntity;
+import net.minecraft.util.EnumChatFormatting;
 import net.minecraft.world.World;
+import thaumcraft.api.aspects.Aspect;
+import thaumcraft.api.aspects.AspectList;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public abstract class BlockArcaneAssembler extends BlockAssembler {
-    public BlockArcaneAssembler(String name, Class<? extends TileEntity> tileEntityClass) {
+    private final long speed;
+    private final int storage, discount;
+
+    public BlockArcaneAssembler(String name, Class<? extends TileEntity> tileEntityClass, long speed, int storage, int discount) {
         super(name, tileEntityClass);
+        this.speed = speed;
+        this.storage = storage;
+        this.discount = discount;
+    }
+
+    @Override
+    public void addInformation(ItemStack stack, EntityPlayer player, List<String> list, boolean b) {
+        list.add(LocalizationUtils.localizeF("tooltip.assembler.description", speed));
+        list.add(LocalizationUtils.localizeF("tooltip.assembler.visStorage", storage));
+        list.add(LocalizationUtils.localize("tooltip.assembler.discount", discount));
+
+        NBTTagCompound data = stack.getTagCompound();
+        if (data != null && data.hasKey("storedVis")) {
+            if (!GuiScreen.isShiftKeyDown()) {
+                list.add(LocalizationUtils.localize("tooltip.assembler.shift"));
+            } else {
+                AspectList aspects = new AspectList();
+                aspects.readFromNBT(data, "storedVis");
+                list.add(EnumChatFormatting.DARK_PURPLE + LocalizationUtils.localize("tooltip.assembler.vis"));
+                for (Aspect aspect : aspects.getAspects()) {
+                    list.add("   " + EnumChatFormatting.WHITE + LocalizationUtils.formatNumber(aspects.getAmount(aspect) / 100d) + EnumChatFormatting.RESET + EnumChatFormatting.LIGHT_PURPLE + " " + aspect.getName());
+                }
+            }
+        }
     }
 
     @Override

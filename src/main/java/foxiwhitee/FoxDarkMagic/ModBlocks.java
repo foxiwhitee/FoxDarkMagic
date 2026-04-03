@@ -5,10 +5,7 @@ import foxiwhitee.FoxDarkMagic.blocks.BlockMatterDistorter;
 import foxiwhitee.FoxDarkMagic.blocks.BlockSingularAlchemicalFurnace;
 import foxiwhitee.FoxDarkMagic.blocks.BlockStabilizer;
 import foxiwhitee.FoxDarkMagic.config.ContentConfig;
-import foxiwhitee.FoxDarkMagic.item.block.ItemBlockChargedArcaneStone;
-import foxiwhitee.FoxDarkMagic.item.block.ItemBlockMatterDistorter;
-import foxiwhitee.FoxDarkMagic.item.block.ItemBlockSingularAlchemicalFurnace;
-import foxiwhitee.FoxDarkMagic.item.block.ItemBlockStabilizer;
+import foxiwhitee.FoxDarkMagic.item.AllItemBlock;
 import foxiwhitee.FoxDarkMagic.tile.TileMatterDistorter;
 import foxiwhitee.FoxDarkMagic.tile.TileSingularAlchemicalFurnace;
 import foxiwhitee.FoxDarkMagic.tile.TileStabilizer;
@@ -30,18 +27,18 @@ public class ModBlocks {
 
     public static void registerBlocks() {
         if (ContentConfig.enableChargedArcaneStone && ContentConfig.enableMoonstone) {
-            RegisterUtils.registerBlock(chargedArcaneStone, ItemBlockChargedArcaneStone.class);
+            RegisterUtils.registerBlock(chargedArcaneStone, AllItemBlock.class);
         }
         if (ContentConfig.enableStabilizer) {
-            RegisterUtils.registerBlock(stabilizer, ItemBlockStabilizer.class);
+            RegisterUtils.registerBlock(stabilizer, AllItemBlock.class);
             RegisterUtils.registerTile(TileStabilizer.class);
         }
         if (ContentConfig.enableSingularArcaneFurnace) {
-            RegisterUtils.registerBlock(singularAlchemicalFurnace, ItemBlockSingularAlchemicalFurnace.class);
+            RegisterUtils.registerBlock(singularAlchemicalFurnace, AllItemBlock.class);
             RegisterUtils.registerTile(TileSingularAlchemicalFurnace.class);
         }
         if (ContentConfig.enableMatterDistorter) {
-            RegisterUtils.registerBlock(matterDistorter, ItemBlockMatterDistorter.class);
+            RegisterUtils.registerBlock(matterDistorter, AllItemBlock.class);
             RegisterUtils.registerTile(TileMatterDistorter.class);
         }
     }

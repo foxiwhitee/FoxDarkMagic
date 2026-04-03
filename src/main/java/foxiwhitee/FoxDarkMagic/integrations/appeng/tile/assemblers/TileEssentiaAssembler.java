@@ -7,9 +7,9 @@ import appeng.items.misc.ItemEncodedPattern;
 import appeng.me.GridAccessException;
 import appeng.tile.TileEvent;
 import appeng.tile.events.TileEventType;
-import appeng.tile.inventory.AppEngInternalInventory;
-import appeng.tile.inventory.InvOperation;
 import foxiwhitee.FoxDarkMagic.integrations.appeng.api.IEssentiaPatternHelper;
+import foxiwhitee.FoxLib.tile.inventory.FoxInternalInventory;
+import foxiwhitee.FoxLib.tile.inventory.InvOperation;
 import net.minecraft.inventory.IInventory;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
@@ -21,15 +21,15 @@ import java.util.List;
 import java.util.Objects;
 
 public abstract class TileEssentiaAssembler extends TileAssembler {
-    private final AppEngInternalInventory upgrade = new AppEngInternalInventory(this, 1, 1);
-    private final AppEngInternalInventory patternsWithoutEssense = new AppEngInternalInventory(this, 36, 1);
+    private final FoxInternalInventory upgrade = new FoxInternalInventory(this, 1, 1);
+    private final FoxInternalInventory patternsWithoutEssense = new FoxInternalInventory(this, 36, 1);
     private boolean infinityEssentia;
 
     public TileEssentiaAssembler(long maxCount) {
         super(maxCount);
     }
 
-    public AppEngInternalInventory getUpgradeInventory() {
+    public FoxInternalInventory getUpgradeInventory() {
         return upgrade;
     }
 
@@ -87,8 +87,8 @@ public abstract class TileEssentiaAssembler extends TileAssembler {
         IInventory patterns = infinityEssentia ? patternsWithoutEssense : getPatterns();
         Boolean[] tracked = new Boolean[patterns.getSizeInventory()];
         Arrays.fill(tracked, false);
-        if (patternList != null) {
-            patternList.removeIf(pattern -> {
+        if (this.processor.getPatternList() != null) {
+            this.processor.getPatternList().removeIf(pattern -> {
                 for (int i = 0; i < patterns.getSizeInventory(); i++) {
                     if (pattern.getPattern() == patterns.getStackInSlot(i)) {
                         tracked[i] = true;
@@ -100,7 +100,7 @@ public abstract class TileEssentiaAssembler extends TileAssembler {
         }
         for (int i = 0; i < tracked.length; i++) {
             if (!tracked[i]) {
-                addPattern(patterns.getStackInSlot(i));
+                this.processor.addPattern(patterns.getStackInSlot(i));
             }
         }
         try {

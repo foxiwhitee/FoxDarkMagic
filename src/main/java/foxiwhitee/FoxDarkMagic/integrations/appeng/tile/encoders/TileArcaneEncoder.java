@@ -4,6 +4,7 @@ import appeng.tile.TileEvent;
 import appeng.tile.events.TileEventType;
 import foxiwhitee.FoxDarkMagic.integrations.appeng.AE2Integration;
 import foxiwhitee.FoxDarkMagic.helpers.RecipesHelper;
+import foxiwhitee.FoxLib.integration.applied.tile.TileUniversalPatternEncoder;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
@@ -99,5 +100,10 @@ public class TileArcaneEncoder extends TileUniversalPatternEncoder {
     public void readFromNbt_(NBTTagCompound data) {
         super.readFromNbt_(data);
         aspectList.readFromNBT(data, "vis");
+    }
+
+    @Override
+    protected ItemStack getItemFromTile(Object o) {
+        return new ItemStack(AE2Integration.arcaneEncoder);
     }
 }

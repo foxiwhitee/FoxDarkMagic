@@ -5,6 +5,7 @@ import appeng.tile.events.TileEventType;
 import com.gtnewhorizons.aspectrecipeindex.common.items.ItemAspect;
 import foxiwhitee.FoxDarkMagic.helpers.RecipesHelper;
 import foxiwhitee.FoxDarkMagic.integrations.appeng.AE2Integration;
+import foxiwhitee.FoxLib.integration.applied.tile.TileUniversalPatternEncoder;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
@@ -89,5 +90,10 @@ public class TileInfusionEncoder extends TileUniversalPatternEncoder {
         super.readFromNbt_(data);
         aspectList.readFromNBT(data, "aspects");
         updateRecipe();
+    }
+
+    @Override
+    protected ItemStack getItemFromTile(Object o) {
+        return new ItemStack(AE2Integration.infusionEncoder);
     }
 }

@@ -2,9 +2,10 @@ package foxiwhitee.FoxDarkMagic.integrations.appeng.tile.encoders;
 
 import appeng.tile.TileEvent;
 import appeng.tile.events.TileEventType;
-import appeng.tile.inventory.InvOperation;
 import foxiwhitee.FoxDarkMagic.helpers.RecipesHelper;
 import foxiwhitee.FoxDarkMagic.integrations.appeng.AE2Integration;
+import foxiwhitee.FoxLib.integration.applied.tile.TileUniversalPatternEncoder;
+import foxiwhitee.FoxLib.tile.inventory.InvOperation;
 import foxiwhitee.FoxLib.utils.helpers.ItemStackUtil;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.inventory.IInventory;
@@ -102,6 +103,11 @@ public class TileCrucibleEncoder extends TileUniversalPatternEncoder {
         aspectList.readFromNBT(data, "vis");
         page = data.getInteger("page");
         updateRecipe();
+    }
+
+    @Override
+    protected ItemStack getItemFromTile(Object o) {
+        return new ItemStack(AE2Integration.crucibleEncoder);
     }
 
     public void nextPage(int step) {

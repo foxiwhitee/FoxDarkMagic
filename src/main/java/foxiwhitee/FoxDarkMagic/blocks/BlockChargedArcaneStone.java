@@ -4,20 +4,28 @@ import foxiwhitee.FoxDarkMagic.DarkCore;
 import foxiwhitee.FoxDarkMagic.ModItems;
 import foxiwhitee.FoxDarkMagic.config.DarkConfig;
 import foxiwhitee.FoxLib.block.FoxBaseBlock;
+import foxiwhitee.FoxLib.utils.helpers.LocalizationUtils;
 import net.minecraft.block.Block;
 import net.minecraft.entity.effect.EntityLightningBolt;
+import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Blocks;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
 import thaumcraft.common.config.ConfigBlocks;
 
+import java.util.List;
 import java.util.Random;
 
 public class BlockChargedArcaneStone extends FoxBaseBlock {
     public BlockChargedArcaneStone(String name) {
         super(DarkCore.MODID, name);
         setCreativeTab(DarkCore.TAB);
+    }
+
+    @Override
+    public void addInformation(ItemStack stack, EntityPlayer player, List<String> list, boolean b) {
+        list.add(LocalizationUtils.localize("tooltip.chargedArcaneStone"));
     }
 
     @Override

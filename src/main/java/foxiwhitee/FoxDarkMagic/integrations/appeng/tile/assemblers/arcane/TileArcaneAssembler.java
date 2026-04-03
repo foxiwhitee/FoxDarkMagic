@@ -6,12 +6,12 @@ import appeng.api.networking.crafting.ICraftingPatternDetails;
 import appeng.me.GridAccessException;
 import appeng.tile.TileEvent;
 import appeng.tile.events.TileEventType;
-import appeng.tile.inventory.AppEngInternalInventory;
-import appeng.tile.inventory.InvOperation;
 import cpw.mods.fml.common.network.ByteBufUtils;
 import foxiwhitee.FoxDarkMagic.helpers.FoxEssentiaHelper;
 import foxiwhitee.FoxDarkMagic.integrations.appeng.api.IAspectPatternHelper;
 import foxiwhitee.FoxDarkMagic.integrations.appeng.tile.assemblers.TileAssembler;
+import foxiwhitee.FoxLib.tile.inventory.FoxInternalInventory;
+import foxiwhitee.FoxLib.tile.inventory.InvOperation;
 import io.netty.buffer.ByteBuf;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.inventory.IInventory;
@@ -31,9 +31,10 @@ import java.util.List;
 import static thaumicenergistics.common.tiles.TileArcaneAssembler.PRIMALS;
 
 public abstract class TileArcaneAssembler extends TileAssembler {
-    private final AppEngInternalInventory upgrade = new AppEngInternalInventory(this, 1, 1);
-    private final AppEngInternalInventory wand = new AppEngInternalInventory(this, 1, 1);
-    private final AppEngInternalInventory armor = new AppEngInternalInventory(this, 4, 1);
+    private final FoxInternalInventory upgrade = new FoxInternalInventory(this, 1, 1);
+    private final FoxInternalInventory wand = new FoxInternalInventory(this, 1, 1);
+    private final FoxInternalInventory armor = new FoxInternalInventory(this, 4, 1);
+    private final FoxInternalInventory patterns;
     private final Hashtable<Aspect, Float> visDiscount = new Hashtable<>();
     private int visTickCounter = 0, delayTickCounter = 0;
     private boolean delayedUpdate = false;
@@ -43,21 +44,27 @@ public abstract class TileArcaneAssembler extends TileAssembler {
 
     public TileArcaneAssembler(long maxCount, int patternsInventory) {
         super(maxCount);
-        this.patterns = new AppEngInternalInventory(this, patternsInventory, 1);
+        this.patterns = new FoxInternalInventory(this, patternsInventory, 1);
         for (Aspect primal : PRIMALS) {
             this.visDiscount.put(primal, getBaseDiscount() / 100f);
         }
+        this.processor.setAfterCraftingFunction(this::afterCrafting);
     }
 
-    public AppEngInternalInventory getUpgradeInventory() {
+    @Override
+    public FoxInternalInventory getPatterns() {
+        return patterns;
+    }
+
+    public FoxInternalInventory getUpgradeInventory() {
         return upgrade;
     }
 
-    public AppEngInternalInventory getWandInventory() {
+    public FoxInternalInventory getWandInventory() {
         return wand;
     }
 
-    public AppEngInternalInventory getArmorInventory() {
+    public FoxInternalInventory getArmorInventory() {
         return armor;
     }
 
@@ -97,9 +104,7 @@ public abstract class TileArcaneAssembler extends TileAssembler {
         this.calculateVisDiscounts();
     }
 
-    @Override
-    protected void afterCrafting() {
-        super.afterCrafting();
+    protected void afterCrafting(ICraftingPatternDetails activePattern) {
         if (!infinityVis && activePattern instanceof IAspectPatternHelper helper) {
             AspectList needVis = helper.getAspects();
             for (Aspect aspect : needVis.getAspects()) {
@@ -111,7 +116,7 @@ public abstract class TileArcaneAssembler extends TileAssembler {
 
     @Override
     protected long getMaxCount() {
-        if (!infinityVis && activePattern instanceof IAspectPatternHelper helper) {
+        if (!infinityVis && this.processor.getActivePattern() instanceof IAspectPatternHelper helper) {
             AspectList needVis = helper.getAspects();
             long can = 0;
             for (Aspect aspect : needVis.getAspects()) {

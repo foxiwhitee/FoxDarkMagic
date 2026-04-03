@@ -7,7 +7,6 @@ import foxiwhitee.FoxDarkMagic.helpers.AspectRenderHelper;
 import foxiwhitee.FoxDarkMagic.network.packets.C2SSelectAspectPacket;
 import foxiwhitee.FoxDarkMagic.tile.TileSingularAlchemicalFurnace;
 import foxiwhitee.FoxLib.network.NetworkManager;
-import foxiwhitee.FoxLib.utils.ProductivityUtil;
 import foxiwhitee.FoxLib.utils.helpers.UtilGui;
 import net.minecraft.entity.player.EntityPlayer;
 import thaumcraft.api.aspects.Aspect;
@@ -17,6 +16,7 @@ import thaumcraft.common.Thaumcraft;
 import java.util.ArrayList;
 import java.util.List;
 
+@SuppressWarnings("unused")
 public class GuiSingularAlchemicalFurnace extends DMGui {
     private final TileSingularAlchemicalFurnace tile;
     private ScrollBar scrollBar;
@@ -83,7 +83,7 @@ public class GuiSingularAlchemicalFurnace extends DMGui {
         this.bindTexture(DarkCore.MODID, this.getBackground());
 
         if (tile.getProgress() > 0) {
-            double l = ProductivityUtil.gauge(216, tile.getProgress(), tile.getTicksNeed());
+            double l = UtilGui.gauge(216, tile.getProgress(), tile.getTicksNeed());
             UtilGui.drawTexture(offsetX + 36, offsetY + 135, 0, 288, (int) l, 6, (int) l, 6);
         }
     }

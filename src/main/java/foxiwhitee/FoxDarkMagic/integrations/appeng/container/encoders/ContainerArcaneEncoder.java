@@ -1,8 +1,8 @@
 package foxiwhitee.FoxDarkMagic.integrations.appeng.container.encoders;
 
-import foxiwhitee.FoxDarkMagic.integrations.appeng.tile.encoders.TileUniversalPatternEncoder;
 import foxiwhitee.FoxLib.container.slots.SlotFake;
 import foxiwhitee.FoxLib.container.slots.SlotFiltered;
+import foxiwhitee.FoxLib.integration.applied.tile.TileUniversalPatternEncoder;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.inventory.Slot;
 import net.minecraft.item.ItemStack;

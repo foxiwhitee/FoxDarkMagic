@@ -1,6 +1,6 @@
 package foxiwhitee.FoxDarkMagic.helpers;
 
-import foxiwhitee.FoxLib.utils.helpers.EnergyUtility;
+import foxiwhitee.FoxLib.utils.helpers.LocalizationUtils;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.FontRenderer;
 import net.minecraft.client.gui.Gui;
@@ -53,7 +53,7 @@ public class AspectRenderHelper {
             GL11.glPopMatrix();
 
             if (amount > 0.0F) {
-                String amountStr = EnergyUtility.formatNumber(amount);
+                String amountStr = LocalizationUtils.formatNumber(amount);
                 drawAmountText(font, amountStr, (int) x, (int) y);
             }
 
